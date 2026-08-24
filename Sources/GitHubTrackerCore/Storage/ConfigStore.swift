@@ -63,7 +63,7 @@ public final class ConfigStore {
             return username
         }
         
-        return "adith"
+        return "Ad1th"
     }
     
     public func saveContributionData(_ data: ContributionData) {
