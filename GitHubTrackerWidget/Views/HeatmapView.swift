@@ -66,5 +66,6 @@ private struct HeatmapSquare: View {
                     .stroke(day.isToday ? Color.accentColor : Color.clear, lineWidth: 1.2)
             )
             .aspectRatio(1.0, contentMode: .fit)
+            .accessibilityLabel("\(day.count) contributions on \(day.dateString)")
     }
 }
