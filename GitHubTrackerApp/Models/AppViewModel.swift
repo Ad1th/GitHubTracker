@@ -12,12 +12,6 @@ public final class AppViewModel: ObservableObject {
     @Published public var errorMessage: String? = nil
     @Published public var isTokenSavedInKeychain: Bool = false
     
-    @Published public var showMenuBarItem: Bool = UserDefaults.standard.bool(forKey: "show_menu_bar_item") {
-        didSet {
-            UserDefaults.standard.set(showMenuBarItem, forKey: "show_menu_bar_item")
-        }
-    }
-    
     public init() {
         self.username = WidgetDataStore.shared.getUsername()
         if let storedToken = KeychainManager.shared.getToken() {
@@ -60,7 +54,6 @@ public final class AppViewModel: ObservableObject {
     }
     
     public func refreshData() async {
-        guard !isLoading else { return }
         isLoading = true
         errorMessage = nil
         statusMessage = nil
@@ -70,26 +63,19 @@ public final class AppViewModel: ObservableObject {
             saveToken()
         }
         
-        let targetUsername = username
-        
-        Task.detached(priority: .userInitiated) {
-            do {
-                let freshData = try await ContributionService.shared.fetchContributionData(username: targetUsername)
-                await MainActor.run {
-                    self.contributionData = freshData
-                    let authStatus = freshData.isAuthenticated ? "GraphQL (Authenticated)" : "Public REST"
-                    self.statusMessage = "Successfully updated GitHub data via \(authStatus)."
-                    self.isLoading = false
-                }
-            } catch {
-                await MainActor.run {
-                    self.errorMessage = error.localizedDescription
-                    if self.contributionData == nil {
-                        self.contributionData = WidgetDataStore.shared.loadContributionData()
-                    }
-                    self.isLoading = false
-                }
+        do {
+            let freshData = try await ContributionService.shared.fetchContributionData(username: username)
+            self.contributionData = freshData
+            let authStatus = freshData.isAuthenticated ? "GraphQL (Authenticated)" : "Public REST"
+            self.statusMessage = "Successfully updated GitHub data via \(authStatus)."
+        } catch {
+            self.errorMessage = error.localizedDescription
+            // Retain cached data
+            if self.contributionData == nil {
+                self.contributionData = WidgetDataStore.shared.loadContributionData()
             }
         }
+        
+        isLoading = false
     }
 }
