@@ -60,6 +60,7 @@ public final class AppViewModel: ObservableObject {
     }
     
     public func refreshData() async {
+        guard !isLoading else { return }
         isLoading = true
         errorMessage = nil
         statusMessage = nil
@@ -69,19 +70,26 @@ public final class AppViewModel: ObservableObject {
             saveToken()
         }
         
-        do {
-            let freshData = try await ContributionService.shared.fetchContributionData(username: username)
-            self.contributionData = freshData
-            
-            let authStatus = freshData.isAuthenticated ? "GraphQL (Authenticated)" : "Public REST"
-            self.statusMessage = "Successfully updated GitHub data via \(authStatus)."
-        } catch {
-            self.errorMessage = error.localizedDescription
-            if self.contributionData == nil {
-                self.contributionData = WidgetDataStore.shared.loadContributionData()
+        let targetUsername = username
+        
+        Task.detached(priority: .userInitiated) {
+            do {
+                let freshData = try await ContributionService.shared.fetchContributionData(username: targetUsername)
+                await MainActor.run {
+                    self.contributionData = freshData
+                    let authStatus = freshData.isAuthenticated ? "GraphQL (Authenticated)" : "Public REST"
+                    self.statusMessage = "Successfully updated GitHub data via \(authStatus)."
+                    self.isLoading = false
+                }
+            } catch {
+                await MainActor.run {
+                    self.errorMessage = error.localizedDescription
+                    if self.contributionData == nil {
+                        self.contributionData = WidgetDataStore.shared.loadContributionData()
+                    }
+                    self.isLoading = false
+                }
             }
         }
-        
-        isLoading = false
     }
 }

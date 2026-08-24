@@ -92,6 +92,7 @@ public final class GitHubRESTClient {
         }
         
         var request = URLRequest(url: url)
+        request.timeoutInterval = 10.0
         request.setValue("GitHubTracker-macOS/1.0", forHTTPHeaderField: "User-Agent")
         
         let (data, response) = try await urlSession.data(for: request)
@@ -135,6 +136,7 @@ public final class GitHubRESTClient {
         }
         
         var request = URLRequest(url: url)
+        request.timeoutInterval = 10.0
         request.setValue("GitHubTracker-macOS/1.0", forHTTPHeaderField: "User-Agent")
         
         let (data, response) = try await urlSession.data(for: request)
@@ -192,6 +194,7 @@ public final class GitHubRESTClient {
         guard let url = URL(string: "https://api.github.com/users/\(username)/events?per_page=10") else { return [] }
         
         var request = URLRequest(url: url)
+        request.timeoutInterval = 10.0
         request.setValue("GitHubTracker-macOS/1.0", forHTTPHeaderField: "User-Agent")
         
         let (data, response) = try await urlSession.data(for: request)

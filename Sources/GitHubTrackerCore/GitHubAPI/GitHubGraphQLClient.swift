@@ -71,6 +71,7 @@ public final class GitHubGraphQLClient {
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
+        request.timeoutInterval = 10.0
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("GitHubTracker-CLI/1.0", forHTTPHeaderField: "User-Agent")
