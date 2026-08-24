@@ -1,10 +1,10 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.0
 import PackageDescription
 
 let package = Package(
     name: "GitHubTracker",
     platforms: [
-        .macOS(.v13)
+        .macOS(.v14)
     ],
     products: [
         .executable(name: "ghtracker", targets: ["ghtracker"]),
@@ -19,6 +19,11 @@ let package = Package(
             name: "ghtracker",
             dependencies: ["GitHubTrackerCore"],
             path: "Sources/ghtracker"
+        ),
+        .testTarget(
+            name: "GitHubTrackerCoreTests",
+            dependencies: ["GitHubTrackerCore"],
+            path: "Tests/GitHubTrackerCoreTests"
         )
     ]
 )
