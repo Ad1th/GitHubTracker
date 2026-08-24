@@ -31,8 +31,7 @@
 		A102000B2C70000100000001 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300062C70000100000001 /* SmallWidgetView.swift */; };
 		A102000C2C70000100000001 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300072C70000100000001 /* MediumWidgetView.swift */; };
 		A102000D2C70000100000001 /* LargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300082C70000100000001 /* LargeWidgetView.swift */; };
-
-		/* Widget Build Files */
+		E10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex in Embed Extension Point */ = {isa = PBXBuildFile; fileRef = P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		W10100012C70000100000001 /* ContributionDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100012C70000100000001 /* ContributionDay.swift */; };
 		W10100022C70000100000001 /* LanguageStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100022C70000100000001 /* LanguageStat.swift */; };
 		W10100032C70000100000001 /* RecentActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100032C70000100000001 /* RecentActivity.swift */; };
@@ -48,8 +47,6 @@
 		W10300062C70000100000001 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300062C70000100000001 /* SmallWidgetView.swift */; };
 		W10300072C70000100000001 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300072C70000100000001 /* MediumWidgetView.swift */; };
 		W10300082C70000100000001 /* LargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300082C70000100000001 /* LargeWidgetView.swift */; };
-		
-		E10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex in Embed Extension Point */ = {isa = PBXBuildFile; fileRef = P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +85,6 @@
 		F10100092C70000100000001 /* GitHubGraphQLClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubGraphQLClient.swift; sourceTree = "<group>"; };
 		F101000A2C70000100000001 /* GitHubRESTClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRESTClient.swift; sourceTree = "<group>"; };
 		F101000B2C70000100000001 /* ContributionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionService.swift; sourceTree = "<group>"; };
-
 		F10200012C70000100000001 /* GitHubTrackerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubTrackerApp.swift; sourceTree = "<group>"; };
 		F10200022C70000100000001 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F10200032C70000100000001 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -98,7 +94,6 @@
 		F10200072C70000100000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F10200082C70000100000001 /* GitHubTrackerApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitHubTrackerApp.entitlements; sourceTree = "<group>"; };
 		F10200092C70000100000001 /* MenuBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
-
 		F10300012C70000100000001 /* GitHubTrackerWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubTrackerWidget.swift; sourceTree = "<group>"; };
 		F10300022C70000100000001 /* WidgetEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetEntry.swift; sourceTree = "<group>"; };
 		F10300032C70000100000001 /* GitHubTimelineProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubTimelineProvider.swift; sourceTree = "<group>"; };
@@ -109,8 +104,7 @@
 		F10300082C70000100000001 /* LargeWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeWidgetView.swift; sourceTree = "<group>"; };
 		F10300092C70000100000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F103000A2C70000100000001 /* GitHubTrackerWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitHubTrackerWidget.entitlements; sourceTree = "<group>"; };
-
-		P10100012C70000100000001 /* GitHubTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		P10100012C70000100000001 /* GitHubTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GitHubTrackerWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -192,7 +186,6 @@
 			path = GitHubAPI;
 			sourceTree = "<group>";
 		};
-
 		G10200012C70000100000001 /* GitHubTrackerApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,7 +234,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-
 		G10300012C70000100000001 /* GitHubTrackerWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,11 +283,10 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-
 		G10400012C70000100000001 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				P10100012C70000100000001 /* GitHubTracker.app */,
+				P10100012C70000100000001 /* GitHubTrackerApp.app */,
 				P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */,
 			);
 			name = Products;
@@ -319,7 +310,7 @@
 			);
 			name = GitHubTrackerApp;
 			productName = GitHubTrackerApp;
-			productReference = P10100012C70000100000001 /* GitHubTracker.app */;
+			productReference = P10100012C70000100000001 /* GitHubTrackerApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		T10200012C70000100000001 /* GitHubTrackerWidgetExtension */ = {
@@ -346,7 +337,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 2660;
 				TargetAttributes = {
 					T10100012C70000100000001 = {
 						CreatedOnToolsVersion = 15.0;
@@ -450,13 +441,35 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_STRICT_OBJC_PROTOTYPES = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -464,13 +477,16 @@
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -485,19 +501,44 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_STRICT_OBJC_PROTOTYPES = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -508,8 +549,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GitHubTrackerApp/GitHubTrackerApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = P2K6KMCKQQ;
 				INFOPLIST_FILE = GitHubTrackerApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -517,6 +561,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.adith.GitHubTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -525,8 +570,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GitHubTrackerApp/GitHubTrackerApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = P2K6KMCKQQ;
 				INFOPLIST_FILE = GitHubTrackerApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -534,6 +582,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.adith.GitHubTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -542,8 +591,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GitHubTrackerWidget/GitHubTrackerWidget.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = P2K6KMCKQQ;
 				INFOPLIST_FILE = GitHubTrackerWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -552,6 +604,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.adith.GitHubTracker.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -561,8 +614,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GitHubTrackerWidget/GitHubTrackerWidget.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = P2K6KMCKQQ;
 				INFOPLIST_FILE = GitHubTrackerWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -571,6 +627,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.adith.GitHubTracker.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
