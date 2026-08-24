@@ -12,25 +12,36 @@ public final class AppViewModel: ObservableObject {
     @Published public var errorMessage: String? = nil
     @Published public var isTokenSavedInKeychain: Bool = false
     
-    @Published public var showMenuBarItem: Bool = UserDefaults.standard.bool(forKey: "show_menu_bar_item") {
-        didSet {
-            UserDefaults.standard.set(showMenuBarItem, forKey: "show_menu_bar_item")
-        }
-    }
-    
     public init() {
-        self.username = WidgetDataStore.shared.getUsername()
+        // Load username with Keychain priority, then AppGroup, then fallback
+        let savedKeychainUsername = KeychainManager.shared.getUsername()
+        let savedStoreUsername = WidgetDataStore.shared.getUsername()
+        
+        if let kcUser = savedKeychainUsername, !kcUser.isEmpty {
+            self.username = kcUser
+        } else if !savedStoreUsername.isEmpty && savedStoreUsername != AppGroupConstants.defaultUsername {
+            self.username = savedStoreUsername
+            KeychainManager.shared.saveUsername(savedStoreUsername)
+        } else {
+            self.username = AppGroupConstants.defaultUsername
+        }
+        
         if let storedToken = KeychainManager.shared.getToken() {
             self.token = storedToken
             self.isTokenSavedInKeychain = true
         }
+        
         self.contributionData = WidgetDataStore.shared.loadContributionData() ?? ContributionData.sample(username: username)
     }
     
     public func saveUsername() {
         let cleaned = username.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !cleaned.isEmpty else { return }
+        
+        // Save across Keychain, AppGroup, and UserDefaults
+        KeychainManager.shared.saveUsername(cleaned)
         WidgetDataStore.shared.saveUsername(cleaned)
-        statusMessage = "Username updated to '@\(cleaned)'."
+        statusMessage = "Username '@\(cleaned)' saved in Keychain & App Storage."
     }
     
     public func saveToken() {
