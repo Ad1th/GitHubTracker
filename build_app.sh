@@ -16,7 +16,7 @@ xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -fram
   GitHubTrackerApp/Services/*.swift \
   GitHubTrackerApp/Views/*.swift \
   GitHubTrackerApp/App/*.swift \
-  -o GitHubTrackerAppExecutable
+  -o GitHubTracker
 
 # 2. Compile WidgetKit Extension Binary
 xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -framework WidgetKit -framework AppIntents -framework Security \
@@ -28,17 +28,18 @@ xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -fram
   GitHubTrackerWidget/Timeline/*.swift \
   GitHubTrackerWidget/Views/*.swift \
   GitHubTrackerWidget/Widget/*.swift \
-  -o GitHubTrackerWidgetExecutable
+  -o GitHubTrackerWidgetExtension
 
 # 3. Construct .app bundle structure
+rm -rf /Applications/GitHubTracker.app GitHubTracker.app
 mkdir -p GitHubTracker.app/Contents/MacOS
 mkdir -p GitHubTracker.app/Contents/Resources
 mkdir -p GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex/Contents/MacOS
 
-cp GitHubTrackerAppExecutable GitHubTracker.app/Contents/MacOS/GitHubTracker
+cp GitHubTracker GitHubTracker.app/Contents/MacOS/GitHubTracker
 chmod +x GitHubTracker.app/Contents/MacOS/GitHubTracker
 
-cp GitHubTrackerWidgetExecutable GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex/Contents/MacOS/GitHubTrackerWidgetExtension
+cp GitHubTrackerWidgetExtension GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex/Contents/MacOS/GitHubTrackerWidgetExtension
 chmod +x GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex/Contents/MacOS/GitHubTrackerWidgetExtension
 
 # App Info.plist
@@ -114,7 +115,7 @@ cat << 'EOF' > GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.a
 </plist>
 EOF
 
-# 4. Code Signing (Use developer identity if present, otherwise ad-hoc)
+# 4. Code Signing
 DEV_IDENTITY=$(security find-identity -p codesigning -v | grep "Apple Development" | head -n 1 | awk -F'"' '{print $2}' || true)
 if [ -z "$DEV_IDENTITY" ]; then
   DEV_IDENTITY="-"
@@ -129,4 +130,6 @@ cp -R GitHubTracker.app /Applications/
 pluginkit -a /Applications/GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex
 pluginkit -e use -i com.adith.GitHubTracker.widget
 
-echo "Successfully built and signed GitHubTracker.app with interactive AppIntents widget buttons!"
+rm -rf GitHubTracker GitHubTrackerWidgetExtension
+
+echo "Successfully installed clean GitHubTracker.app to /Applications!"
