@@ -1,10 +1,26 @@
+# Xcode
 .DS_Store
-*.xcuserstate
+*/.DS_Store
 xcuserdata/
+*.xcuserstate
+project.xcworkspace/xcuserdata/
+*.xcuserdatad
+
+# Build Products
+*.app
+*.appex
+*.dSYM
+*.o
+*.swiftdoc
+*.swiftmodule
+*.swiftsourceinfo
+GitHubTrackerAppExecutable
+GitHubTrackerWidgetExecutable
+
+# Package Manager
+.build/
+.swiftpm/
+
+# Derived Data
 DerivedData/
 build/
-.build/
-*.hmap
-*.ipa
-*.dSYM.zip
-*.dSYM
