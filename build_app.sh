@@ -13,6 +13,7 @@ xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -fram
   GitHubTrackerWidget/Models/*.swift \
   GitHubTrackerWidget/Views/*.swift \
   GitHubTrackerApp/Models/*.swift \
+  GitHubTrackerApp/Services/*.swift \
   GitHubTrackerApp/Views/*.swift \
   GitHubTrackerApp/App/*.swift \
   -o GitHubTrackerAppExecutable
@@ -113,4 +114,4 @@ EOF
 codesign --force --deep --sign - GitHubTracker.app
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f -R -trusted GitHubTracker.app
 
-echo "Successfully compiled GitHubTracker.app!"
+echo "Successfully compiled GitHubTracker.app with AppKit MenuBarManager!"

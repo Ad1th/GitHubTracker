@@ -3,14 +3,16 @@ import SwiftUI
 public struct HeatmapView: View {
     public let days: [ContributionDay]
     public let weeksToShow: Int
+    private let structuredWeeks: [[ContributionDay?]]
     
     public init(days: [ContributionDay], weeksToShow: Int = 24) {
         self.days = days
         self.weeksToShow = weeksToShow
-    }
-    
-    private var structuredWeeks: [[ContributionDay?]] {
-        guard !days.isEmpty else { return [] }
+        
+        guard !days.isEmpty else {
+            self.structuredWeeks = []
+            return
+        }
         
         let maxWeekIndex = days.map { $0.weekIndex }.max() ?? 0
         let minWeekIndex = max(0, maxWeekIndex - weeksToShow + 1)
@@ -28,8 +30,7 @@ public struct HeatmapView: View {
             }
             result.append(weekDays)
         }
-        
-        return result
+        self.structuredWeeks = result
     }
     
     public var body: some View {
