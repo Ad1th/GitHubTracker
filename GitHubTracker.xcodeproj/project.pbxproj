@@ -18,6 +18,7 @@
 		A10100092C70000100000001 /* GitHubGraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100092C70000100000001 /* GitHubGraphQLClient.swift */; };
 		A101000A2C70000100000001 /* GitHubRESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F101000A2C70000100000001 /* GitHubRESTClient.swift */; };
 		A101000B2C70000100000001 /* ContributionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F101000B2C70000100000001 /* ContributionService.swift */; };
+		A101000C2C70000100000001 /* RefreshContributionsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F101000C2C70000100000001 /* RefreshContributionsIntent.swift */; };
 		A10200012C70000100000001 /* GitHubTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200012C70000100000001 /* GitHubTrackerApp.swift */; };
 		A10200022C70000100000001 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200022C70000100000001 /* MainView.swift */; };
 		A10200032C70000100000001 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200032C70000100000001 /* SettingsView.swift */; };
@@ -44,6 +45,7 @@
 		W10100092C70000100000001 /* GitHubGraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100092C70000100000001 /* GitHubGraphQLClient.swift */; };
 		W101000A2C70000100000001 /* GitHubRESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F101000A2C70000100000001 /* GitHubRESTClient.swift */; };
 		W101000B2C70000100000001 /* ContributionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F101000B2C70000100000001 /* ContributionService.swift */; };
+		W101000C2C70000100000001 /* RefreshContributionsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F101000C2C70000100000001 /* RefreshContributionsIntent.swift */; };
 		W10300012C70000100000001 /* GitHubTrackerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300012C70000100000001 /* GitHubTrackerWidget.swift */; };
 		W10300022C70000100000001 /* WidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300022C70000100000001 /* WidgetEntry.swift */; };
 		W10300032C70000100000001 /* GitHubTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300032C70000100000001 /* GitHubTimelineProvider.swift */; };
@@ -92,6 +94,7 @@
 		F10100092C70000100000001 /* GitHubGraphQLClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubGraphQLClient.swift; sourceTree = "<group>"; };
 		F101000A2C70000100000001 /* GitHubRESTClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRESTClient.swift; sourceTree = "<group>"; };
 		F101000B2C70000100000001 /* ContributionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionService.swift; sourceTree = "<group>"; };
+		F101000C2C70000100000001 /* RefreshContributionsIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshContributionsIntent.swift; sourceTree = "<group>"; };
 
 		F10200012C70000100000001 /* GitHubTrackerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubTrackerApp.swift; sourceTree = "<group>"; };
 		F10200022C70000100000001 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -109,7 +112,7 @@
 		F10300042C70000100000001 /* HeatmapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapView.swift; sourceTree = "<group>"; };
 		F10300052C70000100000001 /* StatsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsHeaderView.swift; sourceTree = "<group>"; };
 		F10300062C70000100000001 /* SmallWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
-		F10300072C70000100000001 /* MediumWidgetView.swift in Sources */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
+		F10300072C70000100000001 /* MediumWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
 		F10300082C70000100000001 /* LargeWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeWidgetView.swift; sourceTree = "<group>"; };
 		F10300092C70000100000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F103000A2C70000100000001 /* GitHubTrackerWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitHubTrackerWidget.entitlements; sourceTree = "<group>"; };
@@ -164,6 +167,7 @@
 				F10100022C70000100000001 /* LanguageStat.swift */,
 				F10100032C70000100000001 /* RecentActivity.swift */,
 				F10100042C70000100000001 /* ContributionData.swift */,
+				F101000C2C70000100000001 /* RefreshContributionsIntent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -397,6 +401,7 @@
 				A10100092C70000100000001 /* GitHubGraphQLClient.swift in Sources */,
 				A101000A2C70000100000001 /* GitHubRESTClient.swift in Sources */,
 				A101000B2C70000100000001 /* ContributionService.swift in Sources */,
+				A101000C2C70000100000001 /* RefreshContributionsIntent.swift in Sources */,
 				A10200012C70000100000001 /* GitHubTrackerApp.swift in Sources */,
 				A10200022C70000100000001 /* MainView.swift in Sources */,
 				A10200032C70000100000001 /* SettingsView.swift in Sources */,
@@ -428,6 +433,7 @@
 				W10100092C70000100000001 /* GitHubGraphQLClient.swift in Sources */,
 				W101000A2C70000100000001 /* GitHubRESTClient.swift in Sources */,
 				W101000B2C70000100000001 /* ContributionService.swift in Sources */,
+				W101000C2C70000100000001 /* RefreshContributionsIntent.swift in Sources */,
 				W10300012C70000100000001 /* GitHubTrackerWidget.swift in Sources */,
 				W10300022C70000100000001 /* WidgetEntry.swift in Sources */,
 				W10300032C70000100000001 /* GitHubTimelineProvider.swift in Sources */,

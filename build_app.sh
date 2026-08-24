@@ -5,7 +5,7 @@ echo "Building GitHubTracker macOS App & WidgetKit Extension..."
 SDK=$(xcrun --show-sdk-path)
 
 # 1. Compile Main App Binary
-xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -framework WidgetKit -framework Security \
+xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -framework WidgetKit -framework AppIntents -framework Security \
   Shared/Models/*.swift \
   Shared/Keychain/*.swift \
   Shared/Storage/*.swift \
@@ -19,7 +19,7 @@ xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -fram
   -o GitHubTrackerAppExecutable
 
 # 2. Compile WidgetKit Extension Binary
-xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -framework WidgetKit -framework Security \
+xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -framework WidgetKit -framework AppIntents -framework Security \
   Shared/Models/*.swift \
   Shared/Keychain/*.swift \
   Shared/Storage/*.swift \
@@ -129,4 +129,4 @@ cp -R GitHubTracker.app /Applications/
 pluginkit -a /Applications/GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex
 pluginkit -e use -i com.adith.GitHubTracker.widget
 
-echo "Successfully built and signed GitHubTracker.app!"
+echo "Successfully built and signed GitHubTracker.app with interactive AppIntents widget buttons!"
