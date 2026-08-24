@@ -12,6 +12,12 @@ public final class AppViewModel: ObservableObject {
     @Published public var errorMessage: String? = nil
     @Published public var isTokenSavedInKeychain: Bool = false
     
+    @Published public var showMenuBarItem: Bool = UserDefaults.standard.bool(forKey: "show_menu_bar_item") {
+        didSet {
+            UserDefaults.standard.set(showMenuBarItem, forKey: "show_menu_bar_item")
+        }
+    }
+    
     public init() {
         self.username = WidgetDataStore.shared.getUsername()
         if let storedToken = KeychainManager.shared.getToken() {
@@ -70,7 +76,6 @@ public final class AppViewModel: ObservableObject {
             self.statusMessage = "Successfully updated GitHub data via \(authStatus)."
         } catch {
             self.errorMessage = error.localizedDescription
-            // Retain cached data
             if self.contributionData == nil {
                 self.contributionData = WidgetDataStore.shared.loadContributionData()
             }

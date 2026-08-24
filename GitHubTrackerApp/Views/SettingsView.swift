@@ -90,6 +90,19 @@ public struct SettingsView: View {
                         .foregroundColor(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
                 }
+                
+                Divider()
+                    .padding(.vertical, 4)
+                
+                // Menu Bar Widget Option Toggle
+                VStack(alignment: .leading, spacing: 4) {
+                    Toggle("Show Menu Bar Icon & Widget", isOn: $viewModel.showMenuBarItem)
+                        .font(.system(size: 12, weight: .medium))
+                    
+                    Text("Adds a quick-access GitHub contribution icon to your macOS top Menu Bar.")
+                        .font(.system(size: 10, weight: .regular))
+                        .foregroundColor(.secondary)
+                }
             }
             .padding(14)
             .background(
