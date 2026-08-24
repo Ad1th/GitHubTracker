@@ -23,6 +23,7 @@ xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -fram
   Shared/Models/*.swift \
   Shared/Keychain/*.swift \
   Shared/Storage/*.swift \
+  Shared/GitHubAPI/*.swift \
   GitHubTrackerWidget/Models/*.swift \
   GitHubTrackerWidget/Timeline/*.swift \
   GitHubTrackerWidget/Views/*.swift \
