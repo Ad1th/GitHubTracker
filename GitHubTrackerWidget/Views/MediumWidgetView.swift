@@ -47,8 +47,9 @@ public struct MediumWidgetView: View {
             // Primary Stats
             StatsHeaderView(data: data)
             
-            // Heatmap Graph Grid
-            HeatmapView(days: data.heatmapDays, weeksToShow: 22)
+            // Heatmap Graph Grid (Scaled up & Centered)
+            HeatmapView(days: data.heatmapDays, weeksToShow: 21, squareSize: 10.5, spacing: 3.5)
+                .frame(maxWidth: .infinity, alignment: .center)
             
             // Footer
             HStack {
