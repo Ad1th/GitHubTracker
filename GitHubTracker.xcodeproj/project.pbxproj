@@ -1,0 +1,508 @@
+// !$*RAWER*!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10100012C70000100000001 /* ContributionDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100012C70000100000001 /* ContributionDay.swift */; };
+		A10100022C70000100000001 /* LanguageStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100022C70000100000001 /* LanguageStat.swift */; };
+		A10100032C70000100000001 /* RecentActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100032C70000100000001 /* RecentActivity.swift */; };
+		A10100042C70000100000001 /* ContributionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100042C70000100000001 /* ContributionData.swift */; };
+		A10100052C70000100000001 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100052C70000100000001 /* KeychainManager.swift */; };
+		A10100062C70000100000001 /* AppGroupConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100062C70000100000001 /* AppGroupConstants.swift */; };
+		A10100072C70000100000001 /* WidgetDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100072C70000100000001 /* WidgetDataStore.swift */; };
+		A10100082C70000100000001 /* GitHubAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100082C70000100000001 /* GitHubAPIError.swift */; };
+		A10100092C70000100000001 /* GitHubGraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100092C70000100000001 /* GitHubGraphQLClient.swift */; };
+		A101000A2C70000100000001 /* GitHubRESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F101000A2C70000100000001 /* GitHubRESTClient.swift */; };
+		A101000B2C70000100000001 /* ContributionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F101000B2C70000100000001 /* ContributionService.swift */; };
+		
+		A10200012C70000100000001 /* GitHubTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200012C70000100000001 /* GitHubTrackerApp.swift */; };
+		A10200022C70000100000001 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200022C70000100000001 /* MainView.swift */; };
+		A10200032C70000100000001 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200032C70000100000001 /* SettingsView.swift */; };
+		A10200042C70000100000001 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200042C70000100000001 /* StatusView.swift */; };
+		A10200052C70000100000001 /* SetupGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200052C70000100000001 /* SetupGuideView.swift */; };
+		A10200062C70000100000001 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200062C70000100000001 /* AppViewModel.swift */; };
+
+		/* Widget Build Files */
+		W10100012C70000100000001 /* ContributionDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100012C70000100000001 /* ContributionDay.swift */; };
+		W10100022C70000100000001 /* LanguageStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100022C70000100000001 /* LanguageStat.swift */; };
+		W10100032C70000100000001 /* RecentActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100032C70000100000001 /* RecentActivity.swift */; };
+		W10100042C70000100000001 /* ContributionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100042C70000100000001 /* ContributionData.swift */; };
+		W10100052C70000100000001 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100052C70000100000001 /* KeychainManager.swift */; };
+		W10100062C70000100000001 /* AppGroupConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100062C70000100000001 /* AppGroupConstants.swift */; };
+		W10100072C70000100000001 /* WidgetDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100072C70000100000001 /* WidgetDataStore.swift */; };
+		W10300012C70000100000001 /* GitHubTrackerWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300012C70000100000001 /* GitHubTrackerWidget.swift */; };
+		W10300022C70000100000001 /* WidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300022C70000100000001 /* WidgetEntry.swift */; };
+		W10300032C70000100000001 /* GitHubTimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300032C70000100000001 /* GitHubTimelineProvider.swift */; };
+		W10300042C70000100000001 /* HeatmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300042C70000100000001 /* HeatmapView.swift */; };
+		W10300052C70000100000001 /* StatsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300052C70000100000001 /* StatsHeaderView.swift */; };
+		W10300062C70000100000001 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300062C70000100000001 /* SmallWidgetView.swift */; };
+		W10300072C70000100000001 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300072C70000100000001 /* MediumWidgetView.swift */; };
+		W10300082C70000100000001 /* LargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300082C70000100000001 /* LargeWidgetView.swift */; };
+		
+		E10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex in Embed Extension Point */ = {isa = PBXBuildFile; fileRef = P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C10200012C70000100000001 /* Embed Extension Point */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex in Embed Extension Point */,
+			);
+			name = "Embed Extension Point";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F10100012C70000100000001 /* ContributionDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionDay.swift; sourceTree = "<group>"; };
+		F10100022C70000100000001 /* LanguageStat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageStat.swift; sourceTree = "<group>"; };
+		F10100032C70000100000001 /* RecentActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentActivity.swift; sourceTree = "<group>"; };
+		F10100042C70000100000001 /* ContributionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionData.swift; sourceTree = "<group>"; };
+		F10100052C70000100000001 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		F10100062C70000100000001 /* AppGroupConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppGroupConstants.swift; sourceTree = "<group>"; };
+		F10100072C70000100000001 /* WidgetDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetDataStore.swift; sourceTree = "<group>"; };
+		F10100082C70000100000001 /* GitHubAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPIError.swift; sourceTree = "<group>"; };
+		F10100092C70000100000001 /* GitHubGraphQLClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubGraphQLClient.swift; sourceTree = "<group>"; };
+		F101000A2C70000100000001 /* GitHubRESTClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRESTClient.swift; sourceTree = "<group>"; };
+		F101000B2C70000100000001 /* ContributionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionService.swift; sourceTree = "<group>"; };
+
+		F10200012C70000100000001 /* GitHubTrackerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubTrackerApp.swift; sourceTree = "<group>"; };
+		F10200022C70000100000001 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F10200032C70000100000001 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F10200042C70000100000001 /* StatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		F10200052C70000100000001 /* SetupGuideView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupGuideView.swift; sourceTree = "<group>"; };
+		F10200062C70000100000001 /* AppViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		F10200072C70000100000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F10200082C70000100000001 /* GitHubTrackerApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitHubTrackerApp.entitlements; sourceTree = "<group>"; };
+
+		F10300012C70000100000001 /* GitHubTrackerWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubTrackerWidget.swift; sourceTree = "<group>"; };
+		F10300022C70000100000001 /* WidgetEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetEntry.swift; sourceTree = "<group>"; };
+		F10300032C70000100000001 /* GitHubTimelineProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubTimelineProvider.swift; sourceTree = "<group>"; };
+		F10300042C70000100000001 /* HeatmapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapView.swift; sourceTree = "<group>"; };
+		F10300052C70000100000001 /* StatsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsHeaderView.swift; sourceTree = "<group>"; };
+		F10300062C70000100000001 /* SmallWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallWidgetView.swift; sourceTree = "<group>"; };
+		F10300072C70000100000001 /* MediumWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumWidgetView.swift; sourceTree = "<group>"; };
+		F10300082C70000100000001 /* LargeWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeWidgetView.swift; sourceTree = "<group>"; };
+		F10300092C70000100000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F103000A2C70000100000001 /* GitHubTrackerWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitHubTrackerWidget.entitlements; sourceTree = "<group>"; };
+
+		P10100012C70000100000001 /* GitHubTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GitHubTrackerWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B10100012C70000100000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B10200012C70000100000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		G10000012C70000100000001 = {
+			isa = PBXGroup;
+			children = (
+				G10100012C70000100000001 /* Shared */,
+				G10200012C70000100000001 /* GitHubTrackerApp */,
+				G10300012C70000100000001 /* GitHubTrackerWidget */,
+				G10400012C70000100000001 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		G10100012C70000100000001 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				G10100022C70000100000001 /* Models */,
+				G10100032C70000100000001 /* Keychain */,
+				G10100042C70000100000001 /* Storage */,
+				G10100052C70000100000001 /* GitHubAPI */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		G10100022C70000100000001 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F10100012C70000100000001 /* ContributionDay.swift */,
+				F10100022C70000100000001 /* LanguageStat.swift */,
+				F10100032C70000100000001 /* RecentActivity.swift */,
+				F10100042C70000100000001 /* ContributionData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		G10100032C70000100000001 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				F10100052C70000100000001 /* KeychainManager.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		G10100042C70000100000001 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				F10100062C70000100000001 /* AppGroupConstants.swift */,
+				F10100072C70000100000001 /* WidgetDataStore.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		G10100052C70000100000001 /* GitHubAPI */ = {
+			isa = PBXGroup;
+			children = (
+				F10100082C70000100000001 /* GitHubAPIError.swift */,
+				F10100092C70000100000001 /* GitHubGraphQLClient.swift */,
+				F101000A2C70000100000001 /* GitHubRESTClient.swift */,
+				F101000B2C70000100000001 /* ContributionService.swift */,
+			);
+			path = GitHubAPI;
+			sourceTree = "<group>";
+		};
+
+		G10200012C70000100000001 /* GitHubTrackerApp */ = {
+			isa = PBXGroup;
+			children = (
+				F10200012C70000100000001 /* GitHubTrackerApp.swift */,
+				F10200022C70000100000001 /* MainView.swift */,
+				F10200032C70000100000001 /* SettingsView.swift */,
+				F10200042C70000100000001 /* StatusView.swift */,
+				F10200052C70000100000001 /* SetupGuideView.swift */,
+				F10200062C70000100000001 /* AppViewModel.swift */,
+				F10200072C70000100000001 /* Info.plist */,
+				F10200082C70000100000001 /* GitHubTrackerApp.entitlements */,
+			);
+			path = GitHubTrackerApp;
+			sourceTree = "<group>";
+		};
+
+		G10300012C70000100000001 /* GitHubTrackerWidget */ = {
+			isa = PBXGroup;
+			children = (
+				F10300012C70000100000001 /* GitHubTrackerWidget.swift */,
+				F10300022C70000100000001 /* WidgetEntry.swift */,
+				F10300032C70000100000001 /* GitHubTimelineProvider.swift */,
+				F10300042C70000100000001 /* HeatmapView.swift */,
+				F10300052C70000100000001 /* StatsHeaderView.swift */,
+				F10300062C70000100000001 /* SmallWidgetView.swift */,
+				F10300072C70000100000001 /* MediumWidgetView.swift */,
+				F10300082C70000100000001 /* LargeWidgetView.swift */,
+				F10300092C70000100000001 /* Info.plist */,
+				F103000A2C70000100000001 /* GitHubTrackerWidget.entitlements */,
+			);
+			path = GitHubTrackerWidget;
+			sourceTree = "<group>";
+		};
+
+		G10400012C70000100000001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				P10100012C70000100000001 /* GitHubTracker.app */,
+				P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		T10100012C70000100000001 /* GitHubTrackerApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C10100012C70000100000001 /* Build configuration list for PBXNativeTarget "GitHubTrackerApp" */;
+			buildPhases = (
+				S10100012C70000100000001 /* Sources */,
+				B10100012C70000100000001 /* Frameworks */,
+				C10200012C70000100000001 /* Embed Extension Point */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GitHubTrackerApp;
+			productName = GitHubTrackerApp;
+			productReference = P10100012C70000100000001 /* GitHubTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		T10200012C70000100000001 /* GitHubTrackerWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C10200022C70000100000001 /* Build configuration list for PBXNativeTarget "GitHubTrackerWidgetExtension" */;
+			buildPhases = (
+				S10200012C70000100000001 /* Sources */,
+				B10200012C70000100000001 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GitHubTrackerWidgetExtension;
+			productName = GitHubTrackerWidgetExtension;
+			productReference = P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		PR1000012C70000100000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					T10100012C70000100000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					T10200012C70000100000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = C10000012C70000100000001 /* Build configuration list for PBXProject "GitHubTracker" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = G10000012C70000100000001;
+			productRefGroup = G10400012C70000100000001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				T10100012C70000100000001 /* GitHubTrackerApp */,
+				T10200012C70000100000001 /* GitHubTrackerWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		S10100012C70000100000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10100012C70000100000001 /* ContributionDay.swift in Sources */,
+				A10100022C70000100000001 /* LanguageStat.swift in Sources */,
+				A10100032C70000100000001 /* RecentActivity.swift in Sources */,
+				A10100042C70000100000001 /* ContributionData.swift in Sources */,
+				A10100052C70000100000001 /* KeychainManager.swift in Sources */,
+				A10100062C70000100000001 /* AppGroupConstants.swift in Sources */,
+				A10100072C70000100000001 /* WidgetDataStore.swift in Sources */,
+				A10100082C70000100000001 /* GitHubAPIError.swift in Sources */,
+				A10100092C70000100000001 /* GitHubGraphQLClient.swift in Sources */,
+				A101000A2C70000100000001 /* GitHubRESTClient.swift in Sources */,
+				A101000B2C70000100000001 /* ContributionService.swift in Sources */,
+				A10200012C70000100000001 /* GitHubTrackerApp.swift in Sources */,
+				A10200022C70000100000001 /* MainView.swift in Sources */,
+				A10200032C70000100000001 /* SettingsView.swift in Sources */,
+				A10200042C70000100000001 /* StatusView.swift in Sources */,
+				A10200052C70000100000001 /* SetupGuideView.swift in Sources */,
+				A10200062C70000100000001 /* AppViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		S10200012C70000100000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				W10100012C70000100000001 /* ContributionDay.swift in Sources */,
+				W10100022C70000100000001 /* LanguageStat.swift in Sources */,
+				W10100032C70000100000001 /* RecentActivity.swift in Sources */,
+				W10100042C70000100000001 /* ContributionData.swift in Sources */,
+				W10100052C70000100000001 /* KeychainManager.swift in Sources */,
+				W10100062C70000100000001 /* AppGroupConstants.swift in Sources */,
+				W10100072C70000100000001 /* WidgetDataStore.swift in Sources */,
+				W10300012C70000100000001 /* GitHubTrackerWidget.swift in Sources */,
+				W10300022C70000100000001 /* WidgetEntry.swift in Sources */,
+				W10300032C70000100000001 /* GitHubTimelineProvider.swift in Sources */,
+				W10300042C70000100000001 /* HeatmapView.swift in Sources */,
+				W10300052C70000100000001 /* StatsHeaderView.swift in Sources */,
+				W10300062C70000100000001 /* SmallWidgetView.swift in Sources */,
+				W10300072C70000100000001 /* MediumWidgetView.swift in Sources */,
+				W10300082C70000100000001 /* LargeWidgetView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BC1000012C70000100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_PROTOTYPES = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BC1000022C70000100000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_PROTOTYPES = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BC1020012C70000100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GitHubTrackerApp/GitHubTrackerApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GitHubTrackerApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.githubtracker.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BC1020022C70000100000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GitHubTrackerApp/GitHubTrackerApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GitHubTrackerApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.githubtracker.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BC1030012C70000100000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GitHubTrackerWidget/GitHubTrackerWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GitHubTrackerWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../StandardFrameWorks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.githubtracker.app.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BC1030022C70000100000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GitHubTrackerWidget/GitHubTrackerWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GitHubTrackerWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../StandardFrameWorks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.githubtracker.app.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C10000012C70000100000001 /* Build configuration list for PBXProject "GitHubTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC1000012C70000100000001 /* Debug */,
+				BC1000022C70000100000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C10100012C70000100000001 /* Build configuration list for PBXNativeTarget "GitHubTrackerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC1020012C70000100000001 /* Debug */,
+				BC1020022C70000100000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C10200022C70000100000001 /* Build configuration list for PBXNativeTarget "GitHubTrackerWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BC1030012C70000100000001 /* Debug */,
+				BC1030022C70000100000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = PR1000012C70000100000001 /* Project object */;
+}
