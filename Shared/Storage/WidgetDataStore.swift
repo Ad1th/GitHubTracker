@@ -85,4 +85,10 @@ public final class WidgetDataStore {
         }
         return nil
     }
+    
+    /// Reset stored data to fresh sample data for previews and testing
+    public func resetToSampleData(username: String? = nil) {
+        let name = username ?? getUsername()
+        saveContributionData(ContributionData.sample(username: name))
+    }
 }
