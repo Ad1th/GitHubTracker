@@ -12,7 +12,7 @@ public struct LargeWidgetView: View {
     public var body: some View {
         let data = entry.contributionData
         
-        VStack(alignment: .leading, spacing: 14) {
+        VStack(alignment: .leading, spacing: 12) {
             // Header with Sync Button
             HStack(alignment: .center) {
                 HStack(spacing: 6) {
@@ -44,21 +44,37 @@ public struct LargeWidgetView: View {
                 }
             }
             
-            // Primary 4 Stats (Exact match to app preview)
+            // Primary 4 Stats
             StatsHeaderView(data: data)
             
-            // Contribution Heatmap Section (Large & Prominent)
+            Spacer(minLength: 4)
+            
+            // Large Contribution Heatmap Grid
             VStack(alignment: .leading, spacing: 6) {
+                HStack {
+                    Text("CONTRIBUTIONS")
+                        .font(.system(size: 10, weight: .bold))
+                        .foregroundColor(.secondary)
+                    
+                    Spacer()
+                    
+                    Text("\(data.totalContributions.formattedWithCommas) contributions this year")
+                        .font(.system(size: 10, weight: .medium))
+                        .foregroundColor(.secondary)
+                }
+                
                 HeatmapView(
                     days: data.heatmapDays,
-                    weeksToShow: 21,
-                    squareSize: 12.5,
-                    spacing: 4.0,
+                    weeksToShow: 17,
+                    squareSize: 15.5,
+                    spacing: 4.5,
                     showWeekdayLabels: true
                 )
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.vertical, 4)
             }
+            
+            Spacer(minLength: 4)
             
             // Language Distribution Bar
             if !data.languageStats.isEmpty {
@@ -70,8 +86,6 @@ public struct LargeWidgetView: View {
                     LanguageDistributionBar(languages: data.languageStats)
                 }
             }
-            
-            Spacer(minLength: 0)
             
             // Footer
             HStack {
