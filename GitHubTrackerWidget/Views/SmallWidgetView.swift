@@ -1,5 +1,6 @@
 import SwiftUI
 import WidgetKit
+import AppIntents
 
 public struct SmallWidgetView: View {
     public let entry: GitHubWidgetEntry
@@ -12,7 +13,7 @@ public struct SmallWidgetView: View {
         let data = entry.contributionData
         
         VStack(alignment: .leading, spacing: 0) {
-            // Header
+            // Header with Sync Button
             HStack {
                 Image(systemName: "square.stack.3d.up.fill")
                     .font(.system(size: 11, weight: .bold))
@@ -21,7 +22,19 @@ public struct SmallWidgetView: View {
                     .font(.system(size: 11, weight: .semibold))
                     .foregroundColor(.secondary)
                     .lineLimit(1)
+                
                 Spacer()
+                
+                if #available(macOS 14.0, *) {
+                    Button(intent: RefreshContributionsIntent()) {
+                        Image(systemName: "arrow.clockwise")
+                            .font(.system(size: 9, weight: .bold))
+                            .foregroundColor(.secondary)
+                            .padding(3)
+                            .background(Circle().fill(Color.primary.opacity(0.08)))
+                    }
+                    .buttonStyle(.plain)
+                }
             }
             .padding(.bottom, 12)
             

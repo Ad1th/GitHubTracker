@@ -1,5 +1,6 @@
 import SwiftUI
 import WidgetKit
+import AppIntents
 
 public struct LargeWidgetView: View {
     public let entry: GitHubWidgetEntry
@@ -12,7 +13,7 @@ public struct LargeWidgetView: View {
         let data = entry.contributionData
         
         VStack(alignment: .leading, spacing: 12) {
-            // Header
+            // Header with Sync Button
             HStack(alignment: .center) {
                 HStack(spacing: 6) {
                     Image(systemName: "chevron.left.forwardslash.chevron.right")
@@ -25,9 +26,22 @@ public struct LargeWidgetView: View {
                 
                 Spacer()
                 
-                Text("@\(data.userProfile.username)")
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundColor(.secondary)
+                HStack(spacing: 6) {
+                    Text("@\(data.userProfile.username)")
+                        .font(.system(size: 11, weight: .medium))
+                        .foregroundColor(.secondary)
+                    
+                    if #available(macOS 14.0, *) {
+                        Button(intent: RefreshContributionsIntent()) {
+                            Image(systemName: "arrow.clockwise")
+                                .font(.system(size: 10, weight: .bold))
+                                .foregroundColor(.secondary)
+                                .padding(3)
+                                .background(Circle().fill(Color.primary.opacity(0.08)))
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
             }
             
             // Primary Stats
