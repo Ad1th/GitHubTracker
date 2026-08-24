@@ -48,6 +48,8 @@ cat << 'EOF' > GitHubTracker.app/Contents/Info.plist
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>GitHub Tracker</string>
 	<key>CFBundleExecutable</key>
 	<string>GitHubTracker</string>
 	<key>CFBundleIdentifier</key>
@@ -79,7 +81,7 @@ cat << 'EOF' > GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.a
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>GitHub Contributions</string>
+	<string>GitHub Tracker</string>
 	<key>CFBundleExecutable</key>
 	<string>GitHubTrackerWidgetExtension</string>
 	<key>CFBundleIdentifier</key>
@@ -108,10 +110,22 @@ cat << 'EOF' > GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.a
 		<string>1.0</string>
 	</dict>
 </dict>
+</plist>
 EOF
 
-# 4. Codesign & Register with macOS LaunchServices
-codesign --force --deep --sign - GitHubTracker.app
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f -R -trusted GitHubTracker.app
+# 4. Code Signing (Use developer identity if present, otherwise ad-hoc)
+DEV_IDENTITY=$(security find-identity -p codesigning -v | grep "Apple Development" | head -n 1 | awk -F'"' '{print $2}' || true)
+if [ -z "$DEV_IDENTITY" ]; then
+  DEV_IDENTITY="-"
+fi
 
-echo "Successfully compiled GitHubTracker.app with AppKit MenuBarManager!"
+echo "Signing with identity: $DEV_IDENTITY"
+codesign --force --sign "$DEV_IDENTITY" --entitlements GitHubTrackerWidget/GitHubTrackerWidget.entitlements GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex
+codesign --force --sign "$DEV_IDENTITY" --entitlements GitHubTrackerApp/GitHubTrackerApp.entitlements GitHubTracker.app
+
+cp -R GitHubTracker.app /Applications/
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f -R -trusted /Applications/GitHubTracker.app
+pluginkit -a /Applications/GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex
+pluginkit -e use -i com.githubtracker.app.widget
+
+echo "Successfully built and signed GitHubTracker.app with $DEV_IDENTITY!"
