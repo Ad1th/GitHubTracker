@@ -12,15 +12,15 @@ public struct LargeWidgetView: View {
     public var body: some View {
         let data = entry.contributionData
         
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 14) {
             // Header with Sync Button
             HStack(alignment: .center) {
                 HStack(spacing: 6) {
                     Image(systemName: "chevron.left.forwardslash.chevron.right")
-                        .font(.system(size: 12, weight: .bold))
+                        .font(.system(size: 13, weight: .bold))
                         .foregroundColor(.green)
                     Text("GitHub Activity")
-                        .font(.system(size: 13, weight: .semibold))
+                        .font(.system(size: 14, weight: .bold))
                         .foregroundColor(.primary)
                 }
                 
@@ -28,15 +28,15 @@ public struct LargeWidgetView: View {
                 
                 HStack(spacing: 6) {
                     Text("@\(data.userProfile.username)")
-                        .font(.system(size: 11, weight: .medium))
+                        .font(.system(size: 12, weight: .semibold))
                         .foregroundColor(.secondary)
                     
                     if #available(macOS 14.0, *) {
                         Button(intent: RefreshContributionsIntent()) {
                             Image(systemName: "arrow.clockwise")
-                                .font(.system(size: 10, weight: .bold))
+                                .font(.system(size: 11, weight: .bold))
                                 .foregroundColor(.secondary)
-                                .padding(3)
+                                .padding(4)
                                 .background(Circle().fill(Color.primary.opacity(0.08)))
                         }
                         .buttonStyle(.plain)
@@ -44,56 +44,42 @@ public struct LargeWidgetView: View {
                 }
             }
             
-            // Primary Stats
+            // Primary Stats Header
             StatsHeaderView(data: data)
             
-            // Contribution Heatmap Grid
-            VStack(alignment: .leading, spacing: 4) {
-                Text("CONTRIBUTIONS")
-                    .font(.system(size: 9, weight: .bold))
-                    .foregroundColor(.secondary)
-                HeatmapView(days: data.heatmapDays, weeksToShow: 30)
+            // Contribution Heatmap Section (Large & Prominent)
+            VStack(alignment: .leading, spacing: 6) {
+                HStack {
+                    Text("CONTRIBUTIONS")
+                        .font(.system(size: 10, weight: .bold))
+                        .foregroundColor(.secondary)
+                    
+                    Spacer()
+                    
+                    Text("\(data.totalContributions.formattedWithCommas) total this year")
+                        .font(.system(size: 10, weight: .medium))
+                        .foregroundColor(.secondary)
+                }
+                
+                HeatmapView(
+                    days: data.heatmapDays,
+                    weeksToShow: 19,
+                    squareSize: 13.5,
+                    spacing: 4.0,
+                    showWeekdayLabels: true
+                )
+                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.vertical, 4)
             }
             
             // Language Distribution Bar
             if !data.languageStats.isEmpty {
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: 6) {
                     Text("TOP LANGUAGES")
-                        .font(.system(size: 9, weight: .bold))
+                        .font(.system(size: 10, weight: .bold))
                         .foregroundColor(.secondary)
                     
                     LanguageDistributionBar(languages: data.languageStats)
-                }
-            }
-            
-            // Recent Activity Section
-            if !data.recentActivities.isEmpty {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("RECENT ACTIVITY")
-                        .font(.system(size: 9, weight: .bold))
-                        .foregroundColor(.secondary)
-                    
-                    VStack(alignment: .leading, spacing: 4) {
-                        ForEach(data.recentActivities.prefix(3)) { activity in
-                            HStack(spacing: 6) {
-                                Image(systemName: activity.type.iconName)
-                                    .font(.system(size: 9, weight: .semibold))
-                                    .foregroundColor(.secondary)
-                                
-                                Text(activity.repositoryName)
-                                    .font(.system(size: 11, weight: .semibold))
-                                    .foregroundColor(.primary)
-                                    .lineLimit(1)
-                                
-                                Text("• \(activity.details)")
-                                    .font(.system(size: 10, weight: .regular))
-                                    .foregroundColor(.secondary)
-                                    .lineLimit(1)
-                                
-                                Spacer(minLength: 0)
-                            }
-                        }
-                    }
                 }
             }
             
@@ -101,23 +87,26 @@ public struct LargeWidgetView: View {
             
             // Footer
             HStack {
-                HStack(spacing: 4) {
+                HStack(spacing: 5) {
                     Image(systemName: "flame.fill")
-                        .font(.system(size: 10))
+                        .font(.system(size: 11))
                         .foregroundColor(.orange)
-                    Text("\(data.currentStreak) day streak (Best: \(data.longestStreak))")
-                        .font(.system(size: 10, weight: .medium))
+                    Text("\(data.currentStreak) day streak")
+                        .font(.system(size: 11, weight: .semibold))
+                        .foregroundColor(.primary)
+                    Text("(Best: \(data.longestStreak) days)")
+                        .font(.system(size: 11, weight: .regular))
                         .foregroundColor(.secondary)
                 }
                 
                 Spacer()
                 
                 Text(timeAgoString(from: data.lastUpdated))
-                    .font(.system(size: 9, weight: .regular))
+                    .font(.system(size: 10, weight: .regular))
                     .foregroundColor(.secondary.opacity(0.8))
             }
         }
-        .padding(14)
+        .padding(16)
         .containerBackground(for: .widget) {
             Color(nsColor: .windowBackgroundColor)
         }
@@ -142,30 +131,30 @@ public struct LanguageDistributionBar: View {
     }
     
     public var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: 6) {
             GeometryReader { geometry in
-                HStack(spacing: 1.5) {
+                HStack(spacing: 2) {
                     ForEach(languages) { lang in
-                        RoundedRectangle(cornerRadius: 1.5)
+                        RoundedRectangle(cornerRadius: 2)
                             .fill(lang.color)
                             .frame(width: max(0, geometry.size.width * CGFloat(lang.percentage / 100.0)))
                     }
                 }
             }
-            .frame(height: 6)
-            .cornerRadius(3)
+            .frame(height: 8)
+            .cornerRadius(4)
             
-            HStack(spacing: 8) {
+            HStack(spacing: 12) {
                 ForEach(languages.prefix(4)) { lang in
-                    HStack(spacing: 3) {
+                    HStack(spacing: 4) {
                         Circle()
                             .fill(lang.color)
-                            .frame(width: 5, height: 5)
+                            .frame(width: 6, height: 6)
                         Text(lang.name)
-                            .font(.system(size: 9, weight: .medium))
+                            .font(.system(size: 10, weight: .medium))
                             .foregroundColor(.primary)
                         Text("\(Int(lang.percentage))%")
-                            .font(.system(size: 9, weight: .regular))
+                            .font(.system(size: 10, weight: .regular))
                             .foregroundColor(.secondary)
                     }
                 }
