@@ -71,11 +71,7 @@ public struct SmallWidgetView: View {
         }
         .padding(14)
         .containerBackground(for: .widget) {
-            Color(nsColor: .init(name: nil, dynamicProvider: { appearance in
-                appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
-                    ? NSColor(white: 0.11, alpha: 1.0)
-                    : NSColor(white: 0.98, alpha: 1.0)
-            }))
+            Color(nsColor: .windowBackgroundColor)
         }
     }
 }

@@ -105,11 +105,7 @@ public struct LargeWidgetView: View {
         }
         .padding(14)
         .containerBackground(for: .widget) {
-            Color(nsColor: .init(name: nil, dynamicProvider: { appearance in
-                appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
-                    ? NSColor(white: 0.11, alpha: 1.0)
-                    : NSColor(white: 0.98, alpha: 1.0)
-            }))
+            Color(nsColor: .windowBackgroundColor)
         }
     }
     
@@ -133,7 +129,6 @@ public struct LanguageDistributionBar: View {
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            // Horizontal Segmented Bar
             GeometryReader { geometry in
                 HStack(spacing: 1.5) {
                     ForEach(languages) { lang in
@@ -146,7 +141,6 @@ public struct LanguageDistributionBar: View {
             .frame(height: 6)
             .cornerRadius(3)
             
-            // Legend
             HStack(spacing: 8) {
                 ForEach(languages.prefix(4)) { lang in
                     HStack(spacing: 3) {

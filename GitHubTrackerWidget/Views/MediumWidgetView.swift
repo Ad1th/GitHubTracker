@@ -33,7 +33,7 @@ public struct MediumWidgetView: View {
             // Primary Stats
             StatsHeaderView(data: data)
             
-            // Bigger Heatmap Graph Grid
+            // Heatmap Graph Grid
             HeatmapView(days: data.heatmapDays, weeksToShow: 22)
             
             // Footer
@@ -56,11 +56,7 @@ public struct MediumWidgetView: View {
         }
         .padding(12)
         .containerBackground(for: .widget) {
-            Color(nsColor: .init(name: nil, dynamicProvider: { appearance in
-                appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
-                    ? NSColor(white: 0.11, alpha: 1.0)
-                    : NSColor(white: 0.98, alpha: 1.0)
-            }))
+            Color(nsColor: .windowBackgroundColor)
         }
     }
     

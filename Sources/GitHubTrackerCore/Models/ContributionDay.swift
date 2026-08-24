@@ -36,14 +36,13 @@ public struct ContributionDay: Codable, Identifiable, Equatable {
             }
         }
         
-        /// ANSI 256-color green scale for cross-platform terminals (macOS, Linux, Windows Terminal).
         public var ansiColor: String {
             switch self {
-            case .zero: return "\u{001B}[38;5;238m" // Dark gray
-            case .low: return "\u{001B}[38;5;28m"   // Dark green
-            case .medium: return "\u{001B}[38;5;34m" // Medium green
-            case .high: return "\u{001B}[38;5;40m"   // Bright green
-            case .max: return "\u{001B}[38;5;46m"    // Vivid emerald
+            case .zero: return "\u{001B}[38;5;238m"
+            case .low: return "\u{001B}[38;5;28m"
+            case .medium: return "\u{001B}[38;5;34m"
+            case .high: return "\u{001B}[38;5;40m"
+            case .max: return "\u{001B}[38;5;46m"
             }
         }
     }

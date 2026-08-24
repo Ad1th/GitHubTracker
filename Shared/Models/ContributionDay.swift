@@ -9,7 +9,7 @@ public struct ContributionDay: Codable, Identifiable, Equatable {
     public let dateString: String
     public let count: Int
     public let level: IntensityLevel
-    public let weekday: Int // 1 = Sunday, 7 = Saturday (or 1 = Monday depending on calendar)
+    public let weekday: Int
     public let weekIndex: Int
     public let isToday: Bool
     
@@ -34,39 +34,19 @@ public struct ContributionDay: Codable, Identifiable, Equatable {
             }
         }
         
-        /// Adaptive color for Light and Dark mode, reflecting GitHub contribution colors with macOS native feel.
+        /// Fast static color representations to prevent dynamic NSColor allocation memory leaks during grid rendering.
         public var color: Color {
             switch self {
             case .zero:
-                return Color(nsColor: .init(name: nil, dynamicProvider: { appearance in
-                    appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
-                        ? NSColor(white: 0.16, alpha: 1.0)
-                        : NSColor(white: 0.90, alpha: 1.0)
-                }))
+                return Color(white: 0.18)
             case .low:
-                return Color(nsColor: .init(name: nil, dynamicProvider: { appearance in
-                    appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
-                        ? NSColor(red: 14/255.0, green: 68/255.0, blue: 41/255.0, alpha: 1.0)
-                        : NSColor(red: 155/255.0, green: 225/255.0, blue: 145/255.0, alpha: 1.0)
-                }))
+                return Color(red: 14/255.0, green: 68/255.0, blue: 41/255.0)
             case .medium:
-                return Color(nsColor: .init(name: nil, dynamicProvider: { appearance in
-                    appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
-                        ? NSColor(red: 0/255.0, green: 109/255.0, blue: 50/255.0, alpha: 1.0)
-                        : NSColor(red: 64/255.0, green: 196/255.0, blue: 99/255.0, alpha: 1.0)
-                }))
+                return Color(red: 0/255.0, green: 109/255.0, blue: 50/255.0)
             case .high:
-                return Color(nsColor: .init(name: nil, dynamicProvider: { appearance in
-                    appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
-                        ? NSColor(red: 38/255.0, green: 166/255.0, blue: 65/255.0, alpha: 1.0)
-                        : NSColor(red: 48/255.0, green: 161/255.0, blue: 78/255.0, alpha: 1.0)
-                }))
+                return Color(red: 38/255.0, green: 166/255.0, blue: 65/255.0)
             case .max:
-                return Color(nsColor: .init(name: nil, dynamicProvider: { appearance in
-                    appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
-                        ? NSColor(red: 57/255.0, green: 211/255.0, blue: 83/255.0, alpha: 1.0)
-                        : NSColor(red: 33/255.0, green: 110/255.0, blue: 57/255.0, alpha: 1.0)
-                }))
+                return Color(red: 57/255.0, green: 211/255.0, blue: 83/255.0)
             }
         }
     }

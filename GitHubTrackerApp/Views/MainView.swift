@@ -98,8 +98,10 @@ public struct MainView: View {
         }
         .frame(minWidth: 540, minHeight: 680)
         .onAppear {
-            Task {
-                await viewModel.refreshData()
+            if viewModel.contributionData == nil {
+                Task {
+                    await viewModel.refreshData()
+                }
             }
         }
     }
