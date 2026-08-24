@@ -94,6 +94,20 @@ public struct SettingsView: View {
                 Divider()
                     .padding(.vertical, 4)
                 
+                // Desktop Pinned Widget Toggle
+                VStack(alignment: .leading, spacing: 4) {
+                    Toggle("Pin Widget directly to macOS Desktop Screen", isOn: $viewModel.isDesktopWidgetPinned)
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundColor(.accentColor)
+                    
+                    Text("Pins your live GitHub contribution heatmap widget onto your macOS desktop background. Drag it anywhere on your desktop screen.")
+                        .font(.system(size: 10, weight: .regular))
+                        .foregroundColor(.secondary)
+                }
+                
+                Divider()
+                    .padding(.vertical, 4)
+                
                 // Menu Bar Widget Option Toggle
                 VStack(alignment: .leading, spacing: 4) {
                     Toggle("Show Menu Bar Icon & Widget", isOn: $viewModel.showMenuBarItem)
