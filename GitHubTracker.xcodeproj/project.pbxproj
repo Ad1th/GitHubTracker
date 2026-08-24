@@ -1,4 +1,4 @@
-// !$*RAWER*!
+// !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -18,13 +18,19 @@
 		A10100092C70000100000001 /* GitHubGraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100092C70000100000001 /* GitHubGraphQLClient.swift */; };
 		A101000A2C70000100000001 /* GitHubRESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F101000A2C70000100000001 /* GitHubRESTClient.swift */; };
 		A101000B2C70000100000001 /* ContributionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F101000B2C70000100000001 /* ContributionService.swift */; };
-		
 		A10200012C70000100000001 /* GitHubTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200012C70000100000001 /* GitHubTrackerApp.swift */; };
 		A10200022C70000100000001 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200022C70000100000001 /* MainView.swift */; };
 		A10200032C70000100000001 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200032C70000100000001 /* SettingsView.swift */; };
 		A10200042C70000100000001 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200042C70000100000001 /* StatusView.swift */; };
 		A10200052C70000100000001 /* SetupGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200052C70000100000001 /* SetupGuideView.swift */; };
 		A10200062C70000100000001 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200062C70000100000001 /* AppViewModel.swift */; };
+		A10200072C70000100000001 /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10200092C70000100000001 /* MenuBarManager.swift */; };
+		A10200082C70000100000001 /* WidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300022C70000100000001 /* WidgetEntry.swift */; };
+		A10200092C70000100000001 /* HeatmapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300042C70000100000001 /* HeatmapView.swift */; };
+		A102000A2C70000100000001 /* StatsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300052C70000100000001 /* StatsHeaderView.swift */; };
+		A102000B2C70000100000001 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300062C70000100000001 /* SmallWidgetView.swift */; };
+		A102000C2C70000100000001 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300072C70000100000001 /* MediumWidgetView.swift */; };
+		A102000D2C70000100000001 /* LargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300082C70000100000001 /* LargeWidgetView.swift */; };
 
 		/* Widget Build Files */
 		W10100012C70000100000001 /* ContributionDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100012C70000100000001 /* ContributionDay.swift */; };
@@ -81,6 +87,7 @@
 		F10200062C70000100000001 /* AppViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		F10200072C70000100000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F10200082C70000100000001 /* GitHubTrackerApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitHubTrackerApp.entitlements; sourceTree = "<group>"; };
+		F10200092C70000100000001 /* MenuBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
 
 		F10300012C70000100000001 /* GitHubTrackerWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubTrackerWidget.swift; sourceTree = "<group>"; };
 		F10300022C70000100000001 /* WidgetEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetEntry.swift; sourceTree = "<group>"; };
@@ -179,34 +186,99 @@
 		G10200012C70000100000001 /* GitHubTrackerApp */ = {
 			isa = PBXGroup;
 			children = (
-				F10200012C70000100000001 /* GitHubTrackerApp.swift */,
-				F10200022C70000100000001 /* MainView.swift */,
-				F10200032C70000100000001 /* SettingsView.swift */,
-				F10200042C70000100000001 /* StatusView.swift */,
-				F10200052C70000100000001 /* SetupGuideView.swift */,
-				F10200062C70000100000001 /* AppViewModel.swift */,
+				G10200022C70000100000001 /* App */,
+				G10200032C70000100000001 /* Models */,
+				G10200042C70000100000001 /* Services */,
+				G10200052C70000100000001 /* Views */,
 				F10200072C70000100000001 /* Info.plist */,
 				F10200082C70000100000001 /* GitHubTrackerApp.entitlements */,
 			);
 			path = GitHubTrackerApp;
 			sourceTree = "<group>";
 		};
+		G10200022C70000100000001 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F10200012C70000100000001 /* GitHubTrackerApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		G10200032C70000100000001 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F10200062C70000100000001 /* AppViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		G10200042C70000100000001 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F10200092C70000100000001 /* MenuBarManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		G10200052C70000100000001 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F10200022C70000100000001 /* MainView.swift */,
+				F10200032C70000100000001 /* SettingsView.swift */,
+				F10200042C70000100000001 /* StatusView.swift */,
+				F10200052C70000100000001 /* SetupGuideView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 
 		G10300012C70000100000001 /* GitHubTrackerWidget */ = {
 			isa = PBXGroup;
 			children = (
+				G10300022C70000100000001 /* Widget */,
+				G10300032C70000100000001 /* Models */,
+				G10300042C70000100000001 /* Timeline */,
+				G10300052C70000100000001 /* Views */,
+				F10300092C70000100000001 /* Info.plist */,
+				F103000A2C70000100000001 /* GitHubTrackerWidget.entitlements */,
+			);
+			path = GitHubTrackerWidget;
+			sourceTree = "<group>";
+		};
+		G10300022C70000100000001 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
 				F10300012C70000100000001 /* GitHubTrackerWidget.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		G10300032C70000100000001 /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				F10300022C70000100000001 /* WidgetEntry.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		G10300042C70000100000001 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
 				F10300032C70000100000001 /* GitHubTimelineProvider.swift */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		G10300052C70000100000001 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				F10300042C70000100000001 /* HeatmapView.swift */,
 				F10300052C70000100000001 /* StatsHeaderView.swift */,
 				F10300062C70000100000001 /* SmallWidgetView.swift */,
 				F10300072C70000100000001 /* MediumWidgetView.swift */,
 				F10300082C70000100000001 /* LargeWidgetView.swift */,
-				F10300092C70000100000001 /* Info.plist */,
-				F103000A2C70000100000001 /* GitHubTrackerWidget.entitlements */,
 			);
-			path = GitHubTrackerWidget;
+			path = Views;
 			sourceTree = "<group>";
 		};
 
@@ -314,6 +386,13 @@
 				A10200042C70000100000001 /* StatusView.swift in Sources */,
 				A10200052C70000100000001 /* SetupGuideView.swift in Sources */,
 				A10200062C70000100000001 /* AppViewModel.swift in Sources */,
+				A10200072C70000100000001 /* MenuBarManager.swift in Sources */,
+				A10200082C70000100000001 /* WidgetEntry.swift in Sources */,
+				A10200092C70000100000001 /* HeatmapView.swift in Sources */,
+				A102000A2C70000100000001 /* StatsHeaderView.swift in Sources */,
+				A102000B2C70000100000001 /* SmallWidgetView.swift in Sources */,
+				A102000C2C70000100000001 /* MediumWidgetView.swift in Sources */,
+				A102000D2C70000100000001 /* LargeWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
