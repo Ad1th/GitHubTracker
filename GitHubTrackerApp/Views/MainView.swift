@@ -1,7 +1,7 @@
 import SwiftUI
 
 public struct MainView: View {
-    @StateObject private var viewModel = AppViewModel()
+    @ObservedObject var viewModel: AppViewModel
     @State private var selectedPreviewTab: WidgetSize = .medium
     
     enum WidgetSize: String, CaseIterable, Identifiable {
@@ -11,7 +11,9 @@ public struct MainView: View {
         var id: String { rawValue }
     }
     
-    public init() {}
+    public init(viewModel: AppViewModel) {
+        self.viewModel = viewModel
+    }
     
     public var body: some View {
         ScrollView {
@@ -98,8 +100,10 @@ public struct MainView: View {
         }
         .frame(minWidth: 540, minHeight: 680)
         .onAppear {
-            Task {
-                await viewModel.refreshData()
+            if viewModel.contributionData == nil {
+                Task {
+                    await viewModel.refreshData()
+                }
             }
         }
     }
