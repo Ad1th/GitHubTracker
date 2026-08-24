@@ -68,13 +68,14 @@ public struct MainView: View {
                         
                         Spacer()
                         
-                        Picker("Size", selection: $selectedPreviewTab) {
+                        Picker("", selection: $selectedPreviewTab) {
                             ForEach(WidgetSize.allCases) { size in
                                 Text(size.rawValue).tag(size)
                             }
                         }
                         .pickerStyle(.segmented)
-                        .frame(width: 200)
+                        .labelsHidden()
+                        .frame(width: 220)
                     }
                     
                     VStack {

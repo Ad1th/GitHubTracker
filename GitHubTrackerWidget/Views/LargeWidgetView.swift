@@ -19,7 +19,7 @@ public struct LargeWidgetView: View {
                     Image(systemName: "chevron.left.forwardslash.chevron.right")
                         .font(.system(size: 13, weight: .bold))
                         .foregroundColor(.green)
-                    Text("GitHub Activity")
+                    Text("GitHub")
                         .font(.system(size: 14, weight: .bold))
                         .foregroundColor(.primary)
                 }
@@ -44,27 +44,15 @@ public struct LargeWidgetView: View {
                 }
             }
             
-            // Primary Stats Header
+            // Primary 4 Stats (Exact match to app preview)
             StatsHeaderView(data: data)
             
             // Contribution Heatmap Section (Large & Prominent)
             VStack(alignment: .leading, spacing: 6) {
-                HStack {
-                    Text("CONTRIBUTIONS")
-                        .font(.system(size: 10, weight: .bold))
-                        .foregroundColor(.secondary)
-                    
-                    Spacer()
-                    
-                    Text("\(data.totalContributions.formattedWithCommas) total this year")
-                        .font(.system(size: 10, weight: .medium))
-                        .foregroundColor(.secondary)
-                }
-                
                 HeatmapView(
                     days: data.heatmapDays,
-                    weeksToShow: 19,
-                    squareSize: 13.5,
+                    weeksToShow: 21,
+                    squareSize: 12.5,
                     spacing: 4.0,
                     showWeekdayLabels: true
                 )
