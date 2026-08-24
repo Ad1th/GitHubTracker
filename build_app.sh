@@ -13,7 +13,6 @@ xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -fram
   GitHubTrackerWidget/Models/*.swift \
   GitHubTrackerWidget/Views/*.swift \
   GitHubTrackerApp/Models/*.swift \
-  GitHubTrackerApp/Services/*.swift \
   GitHubTrackerApp/Views/*.swift \
   GitHubTrackerApp/App/*.swift \
   -o GitHubTrackerAppExecutable
@@ -78,6 +77,8 @@ cat << 'EOF' > GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.a
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>GitHub Contributions</string>
 	<key>CFBundleExecutable</key>
 	<string>GitHubTrackerWidgetExtension</string>
 	<key>CFBundleIdentifier</key>
@@ -92,18 +93,24 @@ cat << 'EOF' > GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.a
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>CFBundleSupportedPlatforms</key>
+	<array>
+		<string>MacOSX</string>
+	</array>
 	<key>LSMinimumSystemVersion</key>
 	<string>14.0</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
+		<key>NSExtensionPointVersion</key>
+		<string>1.0</string>
 	</dict>
 </dict>
 EOF
 
 # 4. Codesign & Register with macOS LaunchServices
 codesign --force --deep --sign - GitHubTracker.app
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f GitHubTracker.app
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f -R -trusted GitHubTracker.app
 
-echo "Successfully compiled GitHubTracker.app with Desktop Widget Window Manager!"
+echo "Successfully compiled GitHubTracker.app!"

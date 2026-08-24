@@ -11,7 +11,7 @@ public struct MediumWidgetView: View {
     public var body: some View {
         let data = entry.contributionData
         
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 8) {
             // Header
             HStack(alignment: .center) {
                 HStack(spacing: 6) {
@@ -33,8 +33,8 @@ public struct MediumWidgetView: View {
             // Primary Stats
             StatsHeaderView(data: data)
             
-            // Contribution Heatmap Grid
-            HeatmapView(days: data.heatmapDays, weeksToShow: 23)
+            // Bigger Heatmap Graph Grid
+            HeatmapView(days: data.heatmapDays, weeksToShow: 22)
             
             // Footer
             HStack {
@@ -54,7 +54,7 @@ public struct MediumWidgetView: View {
                     .foregroundColor(.secondary.opacity(0.8))
             }
         }
-        .padding(14)
+        .padding(12)
         .containerBackground(for: .widget) {
             Color(nsColor: .init(name: nil, dynamicProvider: { appearance in
                 appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua

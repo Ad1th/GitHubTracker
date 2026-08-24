@@ -12,12 +12,12 @@ public struct GitHubTrackerApp: App {
         }
         .windowStyle(.titleBar)
         
-        MenuBarExtra {
+        MenuBarExtra(isInserted: $viewModel.showMenuBarItem) {
             VStack(alignment: .leading, spacing: 12) {
                 if let data = viewModel.contributionData {
                     MediumWidgetView(entry: GitHubWidgetEntry(date: Date(), contributionData: data))
-                        .frame(width: 330, height: 160)
-                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        .frame(width: 345, height: 168)
+                        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                 } else {
                     ProgressView("Loading GitHub statistics...")
                         .padding()
@@ -45,12 +45,7 @@ public struct GitHubTrackerApp: App {
             }
             .padding(12)
         } label: {
-            HStack(spacing: 4) {
-                Image(systemName: "chevron.left.forwardslash.chevron.right")
-                if let data = viewModel.contributionData {
-                    Text("\(data.currentStreak)🔥")
-                }
-            }
+            Image(systemName: "chevron.left.forwardslash.chevron.right")
         }
         .menuBarExtraStyle(.window)
     }

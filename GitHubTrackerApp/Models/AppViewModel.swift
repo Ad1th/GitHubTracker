@@ -12,20 +12,6 @@ public final class AppViewModel: ObservableObject {
     @Published public var errorMessage: String? = nil
     @Published public var isTokenSavedInKeychain: Bool = false
     
-    @Published public var isDesktopWidgetPinned: Bool = UserDefaults.standard.bool(forKey: "desktop_widget_pinned") {
-        didSet {
-            UserDefaults.standard.set(isDesktopWidgetPinned, forKey: "desktop_widget_pinned")
-            if isDesktopWidgetPinned {
-                if let data = contributionData {
-                    DesktopWidgetManager.shared.updateDesktopWidget(data: data)
-                }
-                DesktopWidgetManager.shared.show()
-            } else {
-                DesktopWidgetManager.shared.hide()
-            }
-        }
-    }
-    
     @Published public var showMenuBarItem: Bool = UserDefaults.standard.bool(forKey: "show_menu_bar_item") {
         didSet {
             UserDefaults.standard.set(showMenuBarItem, forKey: "show_menu_bar_item")
@@ -39,11 +25,6 @@ public final class AppViewModel: ObservableObject {
             self.isTokenSavedInKeychain = true
         }
         self.contributionData = WidgetDataStore.shared.loadContributionData() ?? ContributionData.sample(username: username)
-        
-        if isDesktopWidgetPinned, let data = self.contributionData {
-            DesktopWidgetManager.shared.updateDesktopWidget(data: data)
-            DesktopWidgetManager.shared.show()
-        }
     }
     
     public func saveUsername() {
@@ -91,10 +72,6 @@ public final class AppViewModel: ObservableObject {
         do {
             let freshData = try await ContributionService.shared.fetchContributionData(username: username)
             self.contributionData = freshData
-            
-            if isDesktopWidgetPinned {
-                DesktopWidgetManager.shared.updateDesktopWidget(data: freshData)
-            }
             
             let authStatus = freshData.isAuthenticated ? "GraphQL (Authenticated)" : "Public REST"
             self.statusMessage = "Successfully updated GitHub data via \(authStatus)."
