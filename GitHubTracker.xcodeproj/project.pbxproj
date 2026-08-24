@@ -350,12 +350,10 @@
 				TargetAttributes = {
 					T10100012C70000100000001 = {
 						CreatedOnToolsVersion = 15.0;
-						DevelopmentTeam = W6D48C9L3Y;
 						ProvisioningStyle = Automatic;
 					};
 					T10200012C70000100000001 = {
 						CreatedOnToolsVersion = 15.0;
-						DevelopmentTeam = W6D48C9L3Y;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -452,11 +450,10 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = W6D48C9L3Y;
 				ENABLE_STRICT_OBJC_PROTOTYPES = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -488,11 +485,10 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = W6D48C9L3Y;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_PROTOTYPES = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -512,16 +508,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GitHubTrackerApp/GitHubTrackerApp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = W6D48C9L3Y;
 				INFOPLIST_FILE = GitHubTrackerApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.githubtracker.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adith.GitHubTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -531,16 +525,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GitHubTrackerApp/GitHubTrackerApp.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = W6D48C9L3Y;
 				INFOPLIST_FILE = GitHubTrackerApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.githubtracker.app;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adith.GitHubTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -550,17 +542,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GitHubTrackerWidget/GitHubTrackerWidget.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = W6D48C9L3Y;
 				INFOPLIST_FILE = GitHubTrackerWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../StandardFrameWorks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.githubtracker.app.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adith.GitHubTracker.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -571,17 +561,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GitHubTrackerWidget/GitHubTrackerWidget.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = W6D48C9L3Y;
 				INFOPLIST_FILE = GitHubTrackerWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../StandardFrameWorks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.githubtracker.app.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adith.GitHubTracker.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;

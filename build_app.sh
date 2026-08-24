@@ -53,7 +53,7 @@ cat << 'EOF' > GitHubTracker.app/Contents/Info.plist
 	<key>CFBundleExecutable</key>
 	<string>GitHubTracker</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.githubtracker.app</string>
+	<string>com.adith.GitHubTracker</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -85,7 +85,7 @@ cat << 'EOF' > GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.a
 	<key>CFBundleExecutable</key>
 	<string>GitHubTrackerWidgetExtension</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.githubtracker.app.widget</string>
+	<string>com.adith.GitHubTracker.widget</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -126,6 +126,6 @@ codesign --force --sign "$DEV_IDENTITY" --entitlements GitHubTrackerApp/GitHubTr
 cp -R GitHubTracker.app /Applications/
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f -R -trusted /Applications/GitHubTracker.app
 pluginkit -a /Applications/GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex
-pluginkit -e use -i com.githubtracker.app.widget
+pluginkit -e use -i com.adith.GitHubTracker.widget
 
-echo "Successfully built and signed GitHubTracker.app with $DEV_IDENTITY!"
+echo "Successfully built and signed GitHubTracker.app!"
