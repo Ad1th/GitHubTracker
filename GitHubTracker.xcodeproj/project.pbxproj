@@ -52,6 +52,16 @@
 		E10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex in Embed Extension Point */ = {isa = PBXBuildFile; fileRef = P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CP1020012C70000100000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = PR1000012C70000100000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = T10200012C70000100000001;
+			remoteInfo = GitHubTrackerWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		C10200012C70000100000001 /* Embed Extension Point */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -305,6 +315,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				TD1020012C70000100000001 /* PBXTargetDependency */,
 			);
 			name = GitHubTrackerApp;
 			productName = GitHubTrackerApp;
@@ -419,6 +430,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		TD1020012C70000100000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = T10200012C70000100000001 /* GitHubTrackerWidgetExtension */;
+			targetProxy = CP1020012C70000100000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BC1000012C70000100000001 /* Debug */ = {
