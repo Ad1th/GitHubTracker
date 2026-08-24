@@ -3,6 +3,7 @@ import SwiftUI
 public struct MainView: View {
     @ObservedObject var viewModel: AppViewModel
     @State private var selectedPreviewTab: WidgetSize = .medium
+    @State private var hasInitiallyLoaded = false
     
     enum WidgetSize: String, CaseIterable, Identifiable {
         case small = "Small"
@@ -18,18 +19,41 @@ public struct MainView: View {
     public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                // Header
-                HStack {
+                // Header with Prominent Sync Button
+                HStack(alignment: .center) {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("GitHub Contribution Tracker")
-                            .font(.system(size: 18, weight: .bold))
+                            .font(.system(size: 20, weight: .bold))
                             .foregroundColor(.primary)
-                        Text("Native macOS App & WidgetKit Extension")
-                            .font(.system(size: 11, weight: .regular))
+                        Text("Real-time macOS Menu Bar & Desktop Widget")
+                            .font(.system(size: 12, weight: .regular))
                             .foregroundColor(.secondary)
                     }
                     
                     Spacer()
+                    
+                    Button(action: {
+                        Task {
+                            await viewModel.refreshData()
+                        }
+                    }) {
+                        HStack(spacing: 6) {
+                            if viewModel.isLoading {
+                                ProgressView()
+                                    .controlSize(.small)
+                            } else {
+                                Image(systemName: "arrow.clockwise")
+                                    .font(.system(size: 12, weight: .bold))
+                            }
+                            Text(viewModel.isLoading ? "Syncing..." : "Sync GitHub")
+                                .font(.system(size: 13, weight: .semibold))
+                        }
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.green)
+                    .disabled(viewModel.isLoading)
                 }
                 
                 // Connection Status
@@ -74,7 +98,7 @@ public struct MainView: View {
                                     .shadow(color: Color.black.opacity(0.15), radius: 6, x: 0, y: 3)
                             }
                         } else {
-                            ProgressView("Loading preview...")
+                            ProgressView("Loading GitHub statistics...")
                                 .padding()
                         }
                     }
@@ -100,7 +124,8 @@ public struct MainView: View {
         }
         .frame(minWidth: 540, minHeight: 680)
         .onAppear {
-            if viewModel.contributionData == nil {
+            if !hasInitiallyLoaded {
+                hasInitiallyLoaded = true
                 Task {
                     await viewModel.refreshData()
                 }
