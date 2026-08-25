@@ -12,7 +12,7 @@ public struct LargeWidgetView: View {
     public var body: some View {
         let data = entry.contributionData
         
-        VStack(alignment: .leading, spacing: 14) {
+        VStack(alignment: .leading, spacing: 12) {
             // Header with Sync Button
             HStack(alignment: .center) {
                 HStack(spacing: 6) {
@@ -20,7 +20,7 @@ public struct LargeWidgetView: View {
                         .font(.system(size: 13, weight: .bold))
                         .foregroundColor(.green)
                     Text("GitHub Activity")
-                        .font(.system(size: 14, weight: .bold))
+                        .font(.system(size: 13, weight: .bold))
                         .foregroundColor(.primary)
                 }
                 
@@ -28,15 +28,15 @@ public struct LargeWidgetView: View {
                 
                 HStack(spacing: 6) {
                     Text("@\(data.userProfile.username)")
-                        .font(.system(size: 12, weight: .semibold))
+                        .font(.system(size: 11, weight: .semibold))
                         .foregroundColor(.secondary)
                     
                     if #available(macOS 14.0, *) {
                         Button(intent: RefreshContributionsIntent()) {
                             Image(systemName: "arrow.clockwise")
-                                .font(.system(size: 11, weight: .bold))
+                                .font(.system(size: 10, weight: .bold))
                                 .foregroundColor(.secondary)
-                                .padding(4)
+                                .padding(3)
                                 .background(Circle().fill(Color.primary.opacity(0.08)))
                         }
                         .buttonStyle(.plain)
@@ -47,13 +47,13 @@ public struct LargeWidgetView: View {
             // Primary 4 Stats
             StatsHeaderView(data: data)
             
-            // Giant Contribution Heatmap (Double the original size)
-            VStack(alignment: .leading, spacing: 6) {
+            // Balanced Contribution Heatmap (Fits perfectly within 324pt canvas)
+            VStack(alignment: .leading, spacing: 5) {
                 HeatmapView(
                     days: data.heatmapDays,
-                    weeksToShow: 14,
-                    squareSize: 20.0,
-                    spacing: 5.0,
+                    weeksToShow: 17,
+                    squareSize: 12.0,
+                    spacing: 3.5,
                     showWeekdayLabels: true
                 )
                 .frame(maxWidth: .infinity, alignment: .center)
@@ -61,9 +61,9 @@ public struct LargeWidgetView: View {
             
             // Top Languages Distribution Bar
             if !data.languageStats.isEmpty {
-                VStack(alignment: .leading, spacing: 6) {
+                VStack(alignment: .leading, spacing: 5) {
                     Text("TOP LANGUAGES")
-                        .font(.system(size: 10, weight: .bold))
+                        .font(.system(size: 9, weight: .bold))
                         .foregroundColor(.secondary)
                     
                     LanguageDistributionBar(languages: data.languageStats)
@@ -74,26 +74,26 @@ public struct LargeWidgetView: View {
             
             // Footer
             HStack {
-                HStack(spacing: 5) {
+                HStack(spacing: 4) {
                     Image(systemName: "flame.fill")
-                        .font(.system(size: 11))
+                        .font(.system(size: 10))
                         .foregroundColor(.orange)
                     Text("\(data.currentStreak) day streak")
-                        .font(.system(size: 11, weight: .semibold))
+                        .font(.system(size: 10, weight: .semibold))
                         .foregroundColor(.primary)
                     Text("(Best: \(data.longestStreak) days)")
-                        .font(.system(size: 11, weight: .regular))
+                        .font(.system(size: 10, weight: .regular))
                         .foregroundColor(.secondary)
                 }
                 
                 Spacer()
                 
                 Text(timeAgoString(from: data.lastUpdated))
-                    .font(.system(size: 10, weight: .regular))
+                    .font(.system(size: 9, weight: .regular))
                     .foregroundColor(.secondary.opacity(0.8))
             }
         }
-        .padding(16)
+        .padding(14)
         .containerBackground(for: .widget) {
             Color(nsColor: .windowBackgroundColor)
         }
@@ -118,7 +118,7 @@ public struct LanguageDistributionBar: View {
     }
     
     public var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .leading, spacing: 5) {
             GeometryReader { geometry in
                 HStack(spacing: 2) {
                     ForEach(languages) { lang in
@@ -128,20 +128,20 @@ public struct LanguageDistributionBar: View {
                     }
                 }
             }
-            .frame(height: 8)
-            .cornerRadius(4)
+            .frame(height: 6)
+            .cornerRadius(3)
             
-            HStack(spacing: 12) {
+            HStack(spacing: 10) {
                 ForEach(languages.prefix(4)) { lang in
-                    HStack(spacing: 4) {
+                    HStack(spacing: 3.5) {
                         Circle()
                             .fill(lang.color)
-                            .frame(width: 6, height: 6)
+                            .frame(width: 5.5, height: 5.5)
                         Text(lang.name)
-                            .font(.system(size: 10, weight: .medium))
+                            .font(.system(size: 9.5, weight: .medium))
                             .foregroundColor(.primary)
                         Text("\(Int(lang.percentage))%")
-                            .font(.system(size: 10, weight: .regular))
+                            .font(.system(size: 9.5, weight: .regular))
                             .foregroundColor(.secondary)
                     }
                 }

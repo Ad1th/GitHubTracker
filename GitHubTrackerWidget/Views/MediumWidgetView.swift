@@ -12,10 +12,10 @@ public struct MediumWidgetView: View {
     public var body: some View {
         let data = entry.contributionData
         
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 6) {
             // Header with Sync Button
             HStack(alignment: .center) {
-                HStack(spacing: 6) {
+                HStack(spacing: 5) {
                     Image(systemName: "chevron.left.forwardslash.chevron.right")
                         .font(.system(size: 11, weight: .bold))
                         .foregroundColor(.green)
@@ -26,7 +26,7 @@ public struct MediumWidgetView: View {
                 
                 Spacer()
                 
-                HStack(spacing: 6) {
+                HStack(spacing: 5) {
                     Text("@\(data.userProfile.username)")
                         .font(.system(size: 11, weight: .medium))
                         .foregroundColor(.secondary)
@@ -34,9 +34,9 @@ public struct MediumWidgetView: View {
                     if #available(macOS 14.0, *) {
                         Button(intent: RefreshContributionsIntent()) {
                             Image(systemName: "arrow.clockwise")
-                                .font(.system(size: 10, weight: .bold))
+                                .font(.system(size: 9, weight: .bold))
                                 .foregroundColor(.secondary)
-                                .padding(3)
+                                .padding(2.5)
                                 .background(Circle().fill(Color.primary.opacity(0.08)))
                         }
                         .buttonStyle(.plain)
@@ -44,32 +44,38 @@ public struct MediumWidgetView: View {
                 }
             }
             
-            // Primary Stats
+            // Primary 4 Stats
             StatsHeaderView(data: data)
             
-            // Heatmap Graph Grid (Scaled up & Centered)
-            HeatmapView(days: data.heatmapDays, weeksToShow: 21, squareSize: 10.5, spacing: 3.5)
-                .frame(maxWidth: .infinity, alignment: .center)
+            // Heatmap Graph Grid (Scaled perfectly for 155pt widget height)
+            HeatmapView(
+                days: data.heatmapDays,
+                weeksToShow: 19,
+                squareSize: 9.5,
+                spacing: 3.0,
+                showWeekdayLabels: false
+            )
+            .frame(maxWidth: .infinity, alignment: .center)
             
             // Footer
             HStack {
                 HStack(spacing: 4) {
                     Image(systemName: "flame.fill")
-                        .font(.system(size: 10))
+                        .font(.system(size: 9))
                         .foregroundColor(.orange)
                     Text("\(data.currentStreak) day streak")
-                        .font(.system(size: 10, weight: .medium))
+                        .font(.system(size: 9, weight: .medium))
                         .foregroundColor(.secondary)
                 }
                 
                 Spacer()
                 
                 Text(timeAgoString(from: data.lastUpdated))
-                    .font(.system(size: 9, weight: .regular))
+                    .font(.system(size: 8.5, weight: .regular))
                     .foregroundColor(.secondary.opacity(0.8))
             }
         }
-        .padding(12)
+        .padding(10)
         .containerBackground(for: .widget) {
             Color(nsColor: .windowBackgroundColor)
         }
