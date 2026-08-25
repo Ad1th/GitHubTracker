@@ -11,10 +11,10 @@ public struct HeatmapView: View {
     
     public init(
         days: [ContributionDay],
-        weeksToShow: Int = 20,
-        squareSize: CGFloat? = nil,
-        spacing: CGFloat = 3.5,
-        showWeekdayLabels: Bool = false
+        weeksToShow: Int = 14,
+        squareSize: CGFloat? = 20.0,
+        spacing: CGFloat = 5.0,
+        showWeekdayLabels: Bool = true
     ) {
         self.days = days
         self.weeksToShow = weeksToShow
@@ -47,34 +47,34 @@ public struct HeatmapView: View {
     }
     
     public var body: some View {
-        HStack(alignment: .center, spacing: spacing + 2) {
+        HStack(alignment: .center, spacing: spacing + 3) {
             // Optional Weekday Labels (Mon, Wed, Fri)
             if showWeekdayLabels {
                 VStack(spacing: spacing) {
                     Text("")
-                        .font(.system(size: 8, weight: .medium))
-                        .frame(height: squareSize ?? 10)
+                        .font(.system(size: 9, weight: .medium))
+                        .frame(height: squareSize ?? 18)
                     Text("M")
-                        .font(.system(size: 8, weight: .semibold))
+                        .font(.system(size: 9, weight: .bold))
                         .foregroundColor(.secondary)
-                        .frame(height: squareSize ?? 10)
+                        .frame(height: squareSize ?? 18)
                     Text("")
-                        .font(.system(size: 8, weight: .medium))
-                        .frame(height: squareSize ?? 10)
+                        .font(.system(size: 9, weight: .medium))
+                        .frame(height: squareSize ?? 18)
                     Text("W")
-                        .font(.system(size: 8, weight: .semibold))
+                        .font(.system(size: 9, weight: .bold))
                         .foregroundColor(.secondary)
-                        .frame(height: squareSize ?? 10)
+                        .frame(height: squareSize ?? 18)
                     Text("")
-                        .font(.system(size: 8, weight: .medium))
-                        .frame(height: squareSize ?? 10)
+                        .font(.system(size: 9, weight: .medium))
+                        .frame(height: squareSize ?? 18)
                     Text("F")
-                        .font(.system(size: 8, weight: .semibold))
+                        .font(.system(size: 9, weight: .bold))
                         .foregroundColor(.secondary)
-                        .frame(height: squareSize ?? 10)
+                        .frame(height: squareSize ?? 18)
                     Text("")
-                        .font(.system(size: 8, weight: .medium))
-                        .frame(height: squareSize ?? 10)
+                        .font(.system(size: 9, weight: .medium))
+                        .frame(height: squareSize ?? 18)
                 }
             }
             
@@ -86,7 +86,7 @@ public struct HeatmapView: View {
                             if let day = structuredWeeks[weekIdx][dayIdx] {
                                 HeatmapSquare(day: day, size: squareSize)
                             } else {
-                                RoundedRectangle(cornerRadius: (squareSize ?? 10) * 0.25)
+                                RoundedRectangle(cornerRadius: (squareSize ?? 18) * 0.25)
                                     .fill(Color.primary.opacity(0.04))
                                     .frame(width: squareSize, height: squareSize)
                                     .aspectRatio(squareSize == nil ? 1.0 : nil, contentMode: .fit)
@@ -104,13 +104,13 @@ private struct HeatmapSquare: View {
     let size: CGFloat?
     
     var body: some View {
-        let cornerRadius: CGFloat = (size ?? 10) * 0.25
+        let cornerRadius: CGFloat = (size ?? 18) * 0.25
         
         RoundedRectangle(cornerRadius: cornerRadius)
             .fill(day.level.color)
             .overlay(
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(day.isToday ? Color.accentColor : Color.clear, lineWidth: 1.5)
+                    .stroke(day.isToday ? Color.accentColor : Color.clear, lineWidth: 1.8)
             )
             .frame(width: size, height: size)
             .aspectRatio(size == nil ? 1.0 : nil, contentMode: .fit)

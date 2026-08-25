@@ -12,14 +12,14 @@ public struct LargeWidgetView: View {
     public var body: some View {
         let data = entry.contributionData
         
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 14) {
             // Header with Sync Button
             HStack(alignment: .center) {
                 HStack(spacing: 6) {
                     Image(systemName: "chevron.left.forwardslash.chevron.right")
                         .font(.system(size: 13, weight: .bold))
                         .foregroundColor(.green)
-                    Text("GitHub")
+                    Text("GitHub Activity")
                         .font(.system(size: 14, weight: .bold))
                         .foregroundColor(.primary)
                 }
@@ -47,36 +47,19 @@ public struct LargeWidgetView: View {
             // Primary 4 Stats
             StatsHeaderView(data: data)
             
-            Spacer(minLength: 4)
-            
-            // Large Contribution Heatmap Grid
+            // Giant Contribution Heatmap (Double the original size)
             VStack(alignment: .leading, spacing: 6) {
-                HStack {
-                    Text("CONTRIBUTIONS")
-                        .font(.system(size: 10, weight: .bold))
-                        .foregroundColor(.secondary)
-                    
-                    Spacer()
-                    
-                    Text("\(data.totalContributions.formattedWithCommas) contributions this year")
-                        .font(.system(size: 10, weight: .medium))
-                        .foregroundColor(.secondary)
-                }
-                
                 HeatmapView(
                     days: data.heatmapDays,
-                    weeksToShow: 17,
-                    squareSize: 15.5,
-                    spacing: 4.5,
+                    weeksToShow: 14,
+                    squareSize: 20.0,
+                    spacing: 5.0,
                     showWeekdayLabels: true
                 )
                 .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.vertical, 4)
             }
             
-            Spacer(minLength: 4)
-            
-            // Language Distribution Bar
+            // Top Languages Distribution Bar
             if !data.languageStats.isEmpty {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("TOP LANGUAGES")
@@ -86,6 +69,8 @@ public struct LargeWidgetView: View {
                     LanguageDistributionBar(languages: data.languageStats)
                 }
             }
+            
+            Spacer(minLength: 0)
             
             // Footer
             HStack {
