@@ -32,8 +32,7 @@
 		A102000B2C70000100000001 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300062C70000100000001 /* SmallWidgetView.swift */; };
 		A102000C2C70000100000001 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300072C70000100000001 /* MediumWidgetView.swift */; };
 		A102000D2C70000100000001 /* LargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300082C70000100000001 /* LargeWidgetView.swift */; };
-
-		/* Widget Build Files */
+		E10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex in Embed Extension Point */ = {isa = PBXBuildFile; fileRef = P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		W10100012C70000100000001 /* ContributionDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100012C70000100000001 /* ContributionDay.swift */; };
 		W10100022C70000100000001 /* LanguageStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100022C70000100000001 /* LanguageStat.swift */; };
 		W10100032C70000100000001 /* RecentActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10100032C70000100000001 /* RecentActivity.swift */; };
@@ -54,8 +53,6 @@
 		W10300062C70000100000001 /* SmallWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300062C70000100000001 /* SmallWidgetView.swift */; };
 		W10300072C70000100000001 /* MediumWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300072C70000100000001 /* MediumWidgetView.swift */; };
 		W10300082C70000100000001 /* LargeWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10300082C70000100000001 /* LargeWidgetView.swift */; };
-		
-		E10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex in Embed Extension Point */ = {isa = PBXBuildFile; fileRef = P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,7 +92,6 @@
 		F101000A2C70000100000001 /* GitHubRESTClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubRESTClient.swift; sourceTree = "<group>"; };
 		F101000B2C70000100000001 /* ContributionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionService.swift; sourceTree = "<group>"; };
 		F101000C2C70000100000001 /* RefreshContributionsIntent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshContributionsIntent.swift; sourceTree = "<group>"; };
-
 		F10200012C70000100000001 /* GitHubTrackerApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubTrackerApp.swift; sourceTree = "<group>"; };
 		F10200022C70000100000001 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		F10200032C70000100000001 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -105,7 +101,6 @@
 		F10200072C70000100000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F10200082C70000100000001 /* GitHubTrackerApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitHubTrackerApp.entitlements; sourceTree = "<group>"; };
 		F10200092C70000100000001 /* MenuBarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
-
 		F10300012C70000100000001 /* GitHubTrackerWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubTrackerWidget.swift; sourceTree = "<group>"; };
 		F10300022C70000100000001 /* WidgetEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetEntry.swift; sourceTree = "<group>"; };
 		F10300032C70000100000001 /* GitHubTimelineProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubTimelineProvider.swift; sourceTree = "<group>"; };
@@ -116,8 +111,7 @@
 		F10300082C70000100000001 /* LargeWidgetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeWidgetView.swift; sourceTree = "<group>"; };
 		F10300092C70000100000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F103000A2C70000100000001 /* GitHubTrackerWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GitHubTrackerWidget.entitlements; sourceTree = "<group>"; };
-
-		P10100012C70000100000001 /* GitHubTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		P10100012C70000100000001 /* GitHubTrackerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubTrackerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GitHubTrackerWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -200,7 +194,6 @@
 			path = GitHubAPI;
 			sourceTree = "<group>";
 		};
-
 		G10200012C70000100000001 /* GitHubTrackerApp */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,7 +242,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-
 		G10300012C70000100000001 /* GitHubTrackerWidget */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,11 +291,10 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-
 		G10400012C70000100000001 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				P10100012C70000100000001 /* GitHubTracker.app */,
+				P10100012C70000100000001 /* GitHubTrackerApp.app */,
 				P10200012C70000100000001 /* GitHubTrackerWidgetExtension.appex */,
 			);
 			name = Products;
@@ -327,7 +318,7 @@
 			);
 			name = GitHubTrackerApp;
 			productName = GitHubTrackerApp;
-			productReference = P10100012C70000100000001 /* GitHubTracker.app */;
+			productReference = P10100012C70000100000001 /* GitHubTrackerApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 		T10200012C70000100000001 /* GitHubTrackerWidgetExtension */ = {
@@ -522,8 +513,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GitHubTrackerApp/GitHubTrackerApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = P2K6KMCKQQ;
 				INFOPLIST_FILE = GitHubTrackerApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -539,8 +532,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GitHubTrackerApp/GitHubTrackerApp.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = P2K6KMCKQQ;
 				INFOPLIST_FILE = GitHubTrackerApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -556,8 +551,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GitHubTrackerWidget/GitHubTrackerWidget.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = P2K6KMCKQQ;
 				INFOPLIST_FILE = GitHubTrackerWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -575,8 +572,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = GitHubTrackerWidget/GitHubTrackerWidget.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = P2K6KMCKQQ;
 				INFOPLIST_FILE = GitHubTrackerWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
