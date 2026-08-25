@@ -16,7 +16,7 @@ xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -fram
   GitHubTrackerApp/Services/*.swift \
   GitHubTrackerApp/Views/*.swift \
   GitHubTrackerApp/App/*.swift \
-  -o GitHubTracker
+  -o GitHubTrackerAppExecutable
 
 # 2. Compile WidgetKit Extension Binary
 xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -framework WidgetKit -framework AppIntents -framework Security \
@@ -28,7 +28,7 @@ xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -fram
   GitHubTrackerWidget/Timeline/*.swift \
   GitHubTrackerWidget/Views/*.swift \
   GitHubTrackerWidget/Widget/*.swift \
-  -o GitHubTrackerWidgetExtension
+  -o GitHubTrackerWidgetExecutable
 
 # 3. Construct .app bundle structure
 rm -rf /Applications/GitHubTracker.app GitHubTracker.app
@@ -36,10 +36,10 @@ mkdir -p GitHubTracker.app/Contents/MacOS
 mkdir -p GitHubTracker.app/Contents/Resources
 mkdir -p GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex/Contents/MacOS
 
-cp GitHubTracker GitHubTracker.app/Contents/MacOS/GitHubTracker
+cp GitHubTrackerAppExecutable GitHubTracker.app/Contents/MacOS/GitHubTracker
 chmod +x GitHubTracker.app/Contents/MacOS/GitHubTracker
 
-cp GitHubTrackerWidgetExtension GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex/Contents/MacOS/GitHubTrackerWidgetExtension
+cp GitHubTrackerWidgetExecutable GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex/Contents/MacOS/GitHubTrackerWidgetExtension
 chmod +x GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex/Contents/MacOS/GitHubTrackerWidgetExtension
 
 # App Info.plist
@@ -127,9 +127,10 @@ codesign --force --sign "$DEV_IDENTITY" --entitlements GitHubTrackerApp/GitHubTr
 
 cp -R GitHubTracker.app /Applications/
 /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f -R -trusted /Applications/GitHubTracker.app
+pluginkit -r /Applications/GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex 2>/dev/null || true
 pluginkit -a /Applications/GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex
 pluginkit -e use -i com.adith.GitHubTracker.widget
 
-rm -rf GitHubTracker GitHubTrackerWidgetExtension
+rm -rf GitHubTrackerAppExecutable GitHubTrackerWidgetExecutable
 
-echo "Successfully installed clean GitHubTracker.app to /Applications!"
+echo "Successfully built and signed GitHubTracker.app to /Applications!"
