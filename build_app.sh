@@ -16,7 +16,7 @@ xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -fram
   GitHubTrackerApp/Services/*.swift \
   GitHubTrackerApp/Views/*.swift \
   GitHubTrackerApp/App/*.swift \
-  -o GitHubTrackerAppExecutable
+  -o GitHubTrackerApp
 
 # 2. Compile WidgetKit Extension Binary
 xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -framework WidgetKit -framework AppIntents -framework Security \
@@ -28,7 +28,7 @@ xcrun swiftc -sdk "$SDK" -target arm64-apple-macosx14.0 -framework SwiftUI -fram
   GitHubTrackerWidget/Timeline/*.swift \
   GitHubTrackerWidget/Views/*.swift \
   GitHubTrackerWidget/Widget/*.swift \
-  -o GitHubTrackerWidgetExecutable
+  -o GitHubTrackerWidgetExtension
 
 # 3. Construct .app bundle structure
 rm -rf /Applications/GitHubTracker.app GitHubTracker.app
@@ -36,10 +36,10 @@ mkdir -p GitHubTracker.app/Contents/MacOS
 mkdir -p GitHubTracker.app/Contents/Resources
 mkdir -p GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex/Contents/MacOS
 
-cp GitHubTrackerAppExecutable GitHubTracker.app/Contents/MacOS/GitHubTracker
-chmod +x GitHubTracker.app/Contents/MacOS/GitHubTracker
+cp GitHubTrackerApp GitHubTracker.app/Contents/MacOS/GitHubTrackerApp
+chmod +x GitHubTracker.app/Contents/MacOS/GitHubTrackerApp
 
-cp GitHubTrackerWidgetExecutable GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex/Contents/MacOS/GitHubTrackerWidgetExtension
+cp GitHubTrackerWidgetExtension GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex/Contents/MacOS/GitHubTrackerWidgetExtension
 chmod +x GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex/Contents/MacOS/GitHubTrackerWidgetExtension
 
 # App Info.plist
@@ -53,13 +53,13 @@ cat << 'EOF' > GitHubTracker.app/Contents/Info.plist
 	<key>CFBundleDisplayName</key>
 	<string>GitHub Tracker</string>
 	<key>CFBundleExecutable</key>
-	<string>GitHubTracker</string>
+	<string>GitHubTrackerApp</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.adith.GitHubTracker</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>GitHubTracker</string>
+	<string>GitHubTrackerApp</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -131,6 +131,6 @@ pluginkit -r /Applications/GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidge
 pluginkit -a /Applications/GitHubTracker.app/Contents/PlugIns/GitHubTrackerWidgetExtension.appex
 pluginkit -e use -i com.adith.GitHubTracker.widget
 
-rm -rf GitHubTrackerAppExecutable GitHubTrackerWidgetExecutable
+rm -rf GitHubTrackerApp GitHubTrackerWidgetExtension
 
-echo "Successfully built and signed GitHubTracker.app to /Applications!"
+echo "Successfully built and registered GitHubTracker.app with Widget Extension!"
